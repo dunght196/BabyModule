@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "884086630751",
+    "firebase_url": "https://baby-index-app-db.firebaseio.com",
+    "project_id": "baby-index-app-db",
+    "storage_bucket": "baby-index-app-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884086630751:android:8efc48825cd63f13186eea",
+        "android_client_info": {
+          "package_name": "com.lily.baby_index_module.host"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884086630751-jcc6r6u6ut3jmeqafdm2tf27ilt8nisg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU_vNNALR9l3xrelSpUJ3Tz0ogLmgUYG8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884086630751-jcc6r6u6ut3jmeqafdm2tf27ilt8nisg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
