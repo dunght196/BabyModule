@@ -46,7 +46,6 @@ class _DetailIndexBabyState extends State<DetailIndexBabyScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print("Baby: ${indexBaby.weight}");
     return Scaffold(
       appBar: AppBar(
           leading: IconButton(

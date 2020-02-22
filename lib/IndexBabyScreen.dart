@@ -52,7 +52,6 @@ class _IndexBabyState extends State<IndexBabyScreen> {
               .collection('date')
               .snapshots(),
           builder: (context, snapshot) {
-            print("Snapshot: ${snapshot.data}");
             if (!snapshot.hasData) return LinearProgressIndicator();
             return _buildList(context, snapshot.data.documents);
           },
