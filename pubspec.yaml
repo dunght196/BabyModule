@@ -23,9 +23,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cloud_firestore: ^0.13.0+1
-  charts_flutter: ^0.8.1
+  cloud_firestore: ^0.13.3
   syncfusion_flutter_charts: ^1.0.0-beta.3
+  intl: ^0.16.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

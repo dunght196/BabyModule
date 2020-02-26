@@ -6,7 +6,7 @@ class IndexBaby {
   final String perimeter;
   final String date;
 
-  IndexBaby(this.height, this.weight, this.perimeter, this.date);
+  IndexBaby(this.date, this.height, this.weight, this.perimeter);
 
   IndexBaby.fromSnapshot(DocumentSnapshot snapshot)
       : height = snapshot['height'],
@@ -19,4 +19,12 @@ class IndexBaby {
         'weight': weight,
         'perimeter': perimeter
       };
+}
+
+class IndexFetus {
+  final String gestationalWeek;
+  final String long;
+  final String weight;
+
+  IndexFetus(this.gestationalWeek, this.long, this.weight);
 }

@@ -238,7 +238,7 @@ class _DetailIndexBabyState extends State<DetailIndexBabyScreen> {
     DocumentReference df = databaseReference.document(indexBaby.date);
     Firestore.instance.runTransaction((Transaction tx) async {
       await tx.delete(df);
-      await Navigator.pop(context);
+      Navigator.pop(context);
     });
   }
 
@@ -247,9 +247,9 @@ class _DetailIndexBabyState extends State<DetailIndexBabyScreen> {
     var dateNew = tftDate.text;
     Firestore.instance.runTransaction((Transaction tx) async {
       await tx.delete(databaseReference.document(dateOld));
-      IndexBaby mapData = IndexBaby(tftHeight.text, tftWeight.text, tftPerimeter.text, dateNew);
+      IndexBaby mapData = IndexBaby(dateNew, tftHeight.text, tftWeight.text, tftPerimeter.text);
       await tx.set(databaseReference.document(dateNew), mapData.toJson());
-      await Navigator.pop(context);
+      Navigator.pop(context);
     });
   }
 }

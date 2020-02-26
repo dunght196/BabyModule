@@ -14,7 +14,6 @@ class _IndexBabyState extends State<IndexBabyScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
           leading: IconButton(
