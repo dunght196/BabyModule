@@ -1,4 +1,4 @@
-import 'package:baby_index_module/Home.dart';
+import 'package:baby_index_module/home.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());

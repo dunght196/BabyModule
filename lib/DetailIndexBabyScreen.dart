@@ -1,4 +1,4 @@
-import 'package:baby_index_module/Home.dart';
+import 'package:baby_index_module/home.dart';
 import 'package:baby_index_module/IndexBaby.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';

@@ -16,9 +16,6 @@ import 'IndexBabyScreen.dart';
 
 class Home extends StatefulWidget {
   static final heightTextField = 40.0;
-  
-  
-
   @override
   _HomeState createState() => _HomeState();
 }
@@ -32,18 +29,6 @@ class _HomeState extends State<Home> {
   final databaseReference = Firestore.instance;
   DateTime _date = DateTime.now();
   var txtDate = DateFormat('dd-MM-yyyy').format(DateTime.now());
-
-  @override
-  void initState() {
-    super.initState();
-
-//    final birthday = DateTime(2020, 02, 24);
-//    final date2 = DateTime.now();
-    var date1 = DateFormat().add_yMd().parse('24/02/2020');
-    var date2 = DateFormat().add_yMd().parse('26/02/2020');
-    final difference = date2.difference(date1).inDays;
-    print('Date: $difference');
-  }
 
   @override
   void dispose() {
@@ -84,7 +69,7 @@ class _HomeState extends State<Home> {
         ],
       ),
       body: ListView(
-        children: <Widget>[
+        children: [
           Padding(
             padding: EdgeInsets.all(23),
             child: Column(
@@ -148,6 +133,9 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
+          _buildLine(),
+          _buildWonderWeek(),
+          _buildLine(),
           Padding(
             padding: EdgeInsets.only(top: 0),
             child: _buildChart(AppUtil.WEIGHT, context),
@@ -272,17 +260,20 @@ class _HomeState extends State<Home> {
           Padding(
             padding: EdgeInsets.only(top: 10),
             child: SfCartesianChart(
+                primaryXAxis: DateTimeAxis(
+                  dateFormat: DateFormat.yMd(),
+                ),
                 zoomPanBehavior:
                     ZoomPanBehavior(enablePinching: true, enablePanning: true),
                 tooltipBehavior: TooltipBehavior(
                     enable: true,
                     header: '',
                     canShowMarker: false,
-                    format: 'point.y(13,7th - series.name)',
+                    format: getMonthTooltip(),
                     color: Colors.grey
                 ),
                 series: <ChartSeries>[
-                  StackedAreaSeries<SalesData, double>(
+                 /* StackedAreaSeries<SalesData, double>(
                       opacity: 0.5,
                       borderColor: Colors.blue,
                       borderWidth: 3,
@@ -299,15 +290,16 @@ class _HomeState extends State<Home> {
                       dataSource: myFakeMobileData,
                       xValueMapper: (SalesData sales, _) => sales.year,
                       yValueMapper: (SalesData sales, _) => sales.sales,
-                      enableTooltip: true),
-                  LineSeries<SalesData, double>(
+                      enableTooltip: true),*/
+                  ScatterSeries<SalesData, DateTime>(
                       color: Colors.blue,
-                      dashArray: <double>[5, 5],
-                      name: '13-02-2020',
+//                      dashArray: <double>[5, 5],
                       dataSource: myFakeMobileData1,
                       xValueMapper: (SalesData sales, _) => sales.year,
                       yValueMapper: (SalesData sales, _) => sales.sales,
-                      dataLabelSettings: DataLabelSettings(isVisible: true),
+                      markerSettings: MarkerSettings(
+                          isVisible: true,
+                      ),
                   ),
                 ]),
           ),
@@ -420,8 +412,24 @@ class _HomeState extends State<Home> {
   Widget _buildLine() {
     return Container(
       margin: EdgeInsets.only(top: 10),
-      height: 15,
-      color: Colors.grey[300],
+      height: 20,
+      color: Colors.grey[200],
+    );
+  }
+
+  Widget _buildWonderWeek() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 12, top: 12),
+          child: Text('Wonder Week', style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 12, top: 10),
+          child: Text('Thời điểm nhõng nhẽo của trẻ'),
+        ),
+      ],
     );
   }
 
@@ -452,5 +460,14 @@ class _HomeState extends State<Home> {
         txtDate = DateFormat('dd-MM-yyyy').format(_date);
       });
     }
+  }
+
+  String getMonthTooltip() {
+    var date1 = DateTime.parse('2019-01-02');
+    var date2 = DateTime.parse('2020-02-22');
+    final difference = date2.difference(date1).inDays;
+    var test = date1.add(Duration(days: 411));
+//    return DateFormat('dd-MM-yyyy').format(test);
+    return difference.toString();
   }
 }

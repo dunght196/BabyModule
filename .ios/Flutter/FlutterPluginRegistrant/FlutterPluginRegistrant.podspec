@@ -21,4 +21,5 @@ Depends on all your plugins, and provides a function to register them.
   s.dependency 'Flutter'
   s.dependency 'cloud_firestore'
   s.dependency 'firebase_core'
+  s.dependency 'url_launcher'
 end
