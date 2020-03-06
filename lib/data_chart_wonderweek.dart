@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
+
+import 'package:baby_index_module/build_wonderweek.dart';
 
 class WonderWeekData {
   WonderWeekData({
@@ -15,6 +15,8 @@ class WonderWeekData {
     this.yValue7,
     this.yValue8,
     this.yValue9,
+    this.yValue10,
+    this.yValue11,
   });
   final dynamic x;
   final num y;
@@ -28,107 +30,277 @@ class WonderWeekData {
   final num yValue7;
   final num yValue8;
   final num yValue9;
+  final num yValue10;
+  final num yValue11;
 }
 
 var week7data = [
   WonderWeekData(
     x: 0,
+    y: 1,
     yValue: 1,
-    yValue2: 2,
-//    yValue3: 3,
-//    yValue4: 4,
-//    yValue5: 4.5,
-//    yValue6: 5,
-//    yValue7: 5.5,
-//    yValue8: 6,
-//    yValue9: 7
+    yValue2: 1,
+    yValue3: 1,
+    yValue4: 0.5,
+    yValue5: 0.5,
+    yValue6: 0.5,
+    yValue7: 0.5,
+    yValue8: 1,
   )
 ];
 
-var markerWeek7Data = [
-  WonderWeekData(x: 5, y: 0.5),
+var week14data = [
+  WonderWeekData(
+    x: 0,
+    y: 7,
+    yValue: 0.5,
+    yValue2: 0.5,
+    yValue3: 1,
+    yValue4: 0.5,
+    yValue5: 0.5,
+    yValue6: 1,
+    yValue7: 0.5,
+    yValue8: 0.5,
+    yValue9: 0.5,
+    yValue10: 0.5,
+    yValue11: 1,
+  )
 ];
 
-Widget _buildWeek7() {
-  return Container(
-    height: 100,
-    margin: EdgeInsets.only(right: 20),
-    child: Center(
-        child: Stack(
-            children: [
-              getTrackerBarWeek7(),
-              SfCartesianChart(
-                plotAreaBorderWidth: 0,
-                primaryYAxis: NumericAxis(
-                    isVisible: false,
-                    majorGridLines: MajorGridLines(width: 0),
-                    minimum: 0,
-                    maximum: 1
-                ),
-                primaryXAxis: NumericAxis(
-                  majorGridLines: MajorGridLines(width: 0),
-                  majorTickLines: MajorTickLines(size: 0),
-                  minimum: 0,
-                  maximum: 7,
-                  interval: 1,
-                ),
-                series: <CartesianSeries>[
-                  ScatterSeries<WonderWeekData, int>(
-                    color: Colors.blue,
-                    dataSource: markerWeek7Data,
-                    xValueMapper: (WonderWeekData sales, _) => sales.x,
-                    yValueMapper: (WonderWeekData sales, _) => sales.y,
-                    markerSettings: MarkerSettings(
-                        isVisible: true,
-                        shape: DataMarkerType.image,
-                        image: AssetImage('images/ball.png')
-                    ),
-                  ),
-                ],
-              )
-            ]
-        )
-    ),
-  );
+var week21data = [
+  WonderWeekData(
+    x: 0,
+    y: 14,
+    yValue: 0.5,
+    yValue2: 0.5,
+    yValue3: 1,
+    yValue4: 1,
+    yValue5: 1,
+    yValue6: 1,
+    yValue7: 0.5,
+    yValue8: 0.5,
+    yValue9: 1,
+  )
+];
 
-}
+var week28data = [
+  WonderWeekData(
+    x: 0,
+    y: 21,
+    yValue: 1,
+    yValue2: 0.5,
+    yValue3: 0.5,
+    yValue4: 1,
+    yValue5: 1,
+    yValue6: 1,
+    yValue7: 0.5,
+    yValue8: 0.5,
+    yValue9: 1,
+  )
+];
 
-SfCartesianChart getTrackerBarWeek7() {
-  return SfCartesianChart(
-      plotAreaBorderWidth: 0,
-      primaryXAxis: NumericAxis(
-          isVisible: false,
-          majorGridLines: MajorGridLines(width: 0),
-          minimum: 0,
-          maximum: 1
-      ),
-      primaryYAxis: NumericAxis(
-        majorGridLines: MajorGridLines(width: 0),
-        majorTickLines: MajorTickLines(size: 0),
-        minimum: 0,
-        maximum: 7,
-        interval: 1,
-      ),
-      series: getStackedBarSeriesWeek7()
-  );
-}
+var week35data = [
+  WonderWeekData(
+    x: 0,
+    y: 28,
+    yValue: 0.5,
+    yValue2: 0.5,
+    yValue3: 1,
+    yValue4: 0.5,
+    yValue5: 0.5,
+    yValue6: 1,
+    yValue7: 1,
+    yValue8: 0.5,
+    yValue9: 0.5,
+    yValue10: 1,
+  )
+];
 
-List<StackedBarSeries<WonderWeekData, int>> getStackedBarSeriesWeek7() {
-  return <StackedBarSeries<WonderWeekData, int>>[
-    StackedBarSeries<WonderWeekData, int>(
-      enableTooltip: true,
-      dataSource: week7data,
-      color: Colors.grey,
-      width: 0.7,
-      xValueMapper: (WonderWeekData sales, _) => sales.x,
-      yValueMapper: (WonderWeekData sales, _) => sales.y,
-    ),
-    StackedBarSeries<WonderWeekData, int>(
-      enableTooltip: true,
-      dataSource: week7data,
-      width: 0.7,
-      xValueMapper: (WonderWeekData sales, _) => sales.x,
-      yValueMapper: (WonderWeekData sales, _) => sales.yValue,
-    ),
-  ];
-}
+var week42data = [
+  WonderWeekData(
+    x: 0,
+    y: 35,
+    yValue: 1,
+    yValue2: 1,
+    yValue3: 0.5,
+    yValue4: 0.5,
+    yValue5: 1,
+    yValue6: 1,
+    yValue7: 1,
+    yValue8: 0.5,
+    yValue9: 0.5,
+  )
+];
+
+var week49data = [
+  WonderWeekData(
+    x: 0,
+    y: 42,
+    yValue: 1,
+    yValue2: 1,
+    yValue3: 1,
+    yValue4: 1,
+    yValue5: 0.5,
+    yValue6: 0.5,
+    yValue7: 1,
+    yValue8: 1,
+  )
+];
+
+var week56data = [
+  WonderWeekData(
+    x: 0,
+    y: 49,
+    yValue: 1,
+    yValue2: 0.5,
+    yValue3: 0.5,
+    yValue4: 1,
+    yValue5: 1,
+    yValue6: 1,
+    yValue7: 0.5,
+    yValue8: 0.5,
+    yValue9: 1,
+  )
+];
+
+var week63data = [
+  WonderWeekData(
+    x: 0,
+    y: 56,
+    yValue: 1,
+    yValue2: 1,
+    yValue3: 1,
+    yValue4: 0.5,
+    yValue5: 0.5,
+    yValue6: 1,
+    yValue7: 1,
+    yValue8: 1,
+  )
+];
+
+var week70data = [
+  WonderWeekData(
+    x: 0,
+    y: 63,
+    yValue: 1,
+    yValue2: 0.5,
+    yValue3: 0.5,
+    yValue4: 1,
+    yValue5: 1,
+    yValue6: 1,
+    yValue7: 1,
+    yValue8: 1,
+  )
+];
+
+var week77data = [
+  WonderWeekData(
+    x: 0,
+    y: 70,
+    yValue: 0.5,
+    yValue2: 0.5,
+    yValue3: 1,
+    yValue4: 1,
+    yValue5: 1,
+    yValue6: 1,
+    yValue7: 0.5,
+    yValue8: 0.5,
+    yValue9: 1,
+  )
+];
+
+var week84data = [
+  WonderWeekData(
+    x: 0,
+    y: 77,
+    yValue: 1,
+    yValue2: 1,
+    yValue3: 1,
+    yValue4: 1,
+    yValue5: 1,
+    yValue6: 1,
+    yValue7: 1,
+  )
+];
+
+var markerWeek7DataRain = [
+  WonderWeekData(x: 5, y: heightWonderWeekChart),
+];
+
+var markerWeek14DataRain = [
+  WonderWeekData(x: 8, y: heightWonderWeekChart),
+  WonderWeekData(x: 12, y: heightWonderWeekChart),
+];
+
+var markerWeek21DataRain = [
+  WonderWeekData(x: 17, y: heightWonderWeekChart),
+];
+
+var markerWeek28DataRain = [
+  WonderWeekData(x: 21, y: heightWonderWeekChart),
+];
+
+var markerWeek42DataRain = [
+  WonderWeekData(x: 36, y: heightWonderWeekChart),
+];
+
+var markerWeek49DataRain = [
+  WonderWeekData(x: 44, y: heightWonderWeekChart),
+];
+
+var markerWeek56DataRain = [
+  WonderWeekData(x: 53, y: heightWonderWeekChart),
+];
+
+var markerWeek63DataRain = [
+  WonderWeekData(x: 61.5, y: heightWonderWeekChart),
+];
+
+var markerWeek77DataRain = [
+  WonderWeekData(x: 72.5, y: heightWonderWeekChart),
+];
+
+var markerWeek7DataDocile = [
+  WonderWeekData(x: 6, y: heightWonderWeekChart),
+];
+
+var markerWeek14DataDocile = [
+  WonderWeekData(x: 10, y: heightWonderWeekChart),
+  WonderWeekData(x: 13, y: heightWonderWeekChart),
+];
+
+var markerWeek21DataDocile = [
+  WonderWeekData(x: 21, y: heightWonderWeekChart),
+];
+
+var markerWeek28DataDocile = [
+  WonderWeekData(x: 26, y: heightWonderWeekChart),
+];
+
+var markerWeek35DataDocile = [
+  WonderWeekData(x: 31, y: heightWonderWeekChart),
+];
+
+var markerWeek42DataDocile = [
+  WonderWeekData(x: 39, y: heightWonderWeekChart),
+];
+
+var markerWeek49DataDocile = [
+  WonderWeekData(x: 49, y: heightWonderWeekChart),
+];
+
+var markerWeek56DataDocile = [
+  WonderWeekData(x: 49, y: heightWonderWeekChart),
+];
+
+var markerWeek63DataDocile = [
+  WonderWeekData(x: 58, y: heightWonderWeekChart),
+];
+
+var markerWeek70DataDocile = [
+  WonderWeekData(x: 66, y: heightWonderWeekChart),
+];
+
+var markerWeek84DataDocile = [
+  WonderWeekData(x: 79, y: heightWonderWeekChart),
+];

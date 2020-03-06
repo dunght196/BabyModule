@@ -51,8 +51,7 @@ class _TestState extends State<Test> {
         body: Column(
           children: [
             Container(
-              height: 100,
-              margin: EdgeInsets.only(right: 20),
+              height: 200,
               child: Center(
                   child: Stack(
                       children: [
@@ -60,7 +59,7 @@ class _TestState extends State<Test> {
                         SfCartesianChart(
                           plotAreaBorderWidth: 0,
                           primaryYAxis: NumericAxis(
-                              isVisible: false,
+                              isVisible: true,
                               majorGridLines: MajorGridLines(width: 0),
                               minimum: 0,
                               maximum: 1
@@ -90,45 +89,45 @@ class _TestState extends State<Test> {
                   )
               ),
             ),
-            Container(
-              height: 100,
-              child: Center(
-                  child: Stack(
-                      children: [
-                        getTrackerBarChart(false),
-                        SfCartesianChart(
-                          plotAreaBorderWidth: 0,
-                          primaryYAxis: NumericAxis(
-                              isVisible: false,
-                              majorGridLines: MajorGridLines(width: 0),
-                              minimum: 0,
-                              maximum: 1
-                          ),
-                          primaryXAxis: NumericAxis(
-                            majorGridLines: MajorGridLines(width: 0),
-                            majorTickLines: MajorTickLines(size: 0),
-                            minimum: 49,
-                            maximum: 60,
-                            interval: 1,
-                          ),
-                          series: <CartesianSeries>[
-                            ScatterSeries<ChartSampleData, int>(
-                              color: Colors.blue,
-                              dataSource: chartData1,
-                              xValueMapper: (ChartSampleData sales, _) => sales.x,
-                              yValueMapper: (ChartSampleData sales, _) => sales.y,
-                              markerSettings: MarkerSettings(
-                                  isVisible: true,
-                                  shape: DataMarkerType.image,
-                                  image: AssetImage('images/ball.png')
-                              ),
-                            ),
-                          ],
-                        )
-                      ]
-                  )
-              ),
-            ),
+//            Container(
+//              height: 100,
+//              child: Center(
+//                  child: Stack(
+//                      children: [
+//                        getTrackerBarChart(false),
+//                        SfCartesianChart(
+//                          plotAreaBorderWidth: 0,
+//                          primaryYAxis: NumericAxis(
+//                              isVisible: false,
+//                              majorGridLines: MajorGridLines(width: 0),
+//                              minimum: 0,
+//                              maximum: 1
+//                          ),
+//                          primaryXAxis: NumericAxis(
+//                            majorGridLines: MajorGridLines(width: 0),
+//                            majorTickLines: MajorTickLines(size: 0),
+//                            minimum: 49,
+//                            maximum: 60,
+//                            interval: 1,
+//                          ),
+//                          series: <CartesianSeries>[
+//                            ScatterSeries<ChartSampleData, int>(
+//                              color: Colors.blue,
+//                              dataSource: chartData1,
+//                              xValueMapper: (ChartSampleData sales, _) => sales.x,
+//                              yValueMapper: (ChartSampleData sales, _) => sales.y,
+//                              markerSettings: MarkerSettings(
+//                                  isVisible: true,
+//                                  shape: DataMarkerType.image,
+//                                  image: AssetImage('images/ball.png')
+//                              ),
+//                            ),
+//                          ],
+//                        )
+//                      ]
+//                  )
+//              ),
+//            ),
           ],
         )
     );
@@ -140,7 +139,7 @@ SfCartesianChart getTrackerBarChart(bool isTileView) {
   return SfCartesianChart(
     plotAreaBorderWidth: 0,
     primaryXAxis: NumericAxis(
-      isVisible: false,
+      isVisible: true,
       majorGridLines: MajorGridLines(width: 0),
       minimum: 0,
       maximum: 1
@@ -165,7 +164,10 @@ List<StackedBarSeries<ChartSampleData, int>> getStackedBarSeries(
     StackedBarSeries<ChartSampleData, int>(
       enableTooltip: true,
       dataSource: chartData,
-      color: Colors.grey,
+      color: Colors.transparent,
+//      opacity: 0,
+      borderColor: Colors.grey,
+      borderWidth: 1,
       width: 0.7,
       xValueMapper: (ChartSampleData sales, _) => sales.x,
       yValueMapper: (ChartSampleData sales, _) => sales.y,

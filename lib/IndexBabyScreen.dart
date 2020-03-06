@@ -1,5 +1,6 @@
 import 'package:baby_index_module/DetailIndexBabyScreen.dart';
 import 'package:baby_index_module/IndexBaby.dart';
+import 'package:baby_index_module/home.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

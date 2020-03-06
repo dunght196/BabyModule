@@ -55,7 +55,7 @@ class _DetailIndexBabyState extends State<DetailIndexBabyScreen> {
             },
           ),
           titleSpacing: 0.0,
-          title: Text('Cập nhật chỉ số cho bé')),
+          title: Text('Cập nhật chỉ số cho beeee')),
       body: Stack(
         children: <Widget>[
           Container(

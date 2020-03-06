@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:baby_index_module/DetailIndexBabyScreen.dart';
 import 'package:baby_index_module/IndexBaby.dart';
+import 'package:baby_index_module/build_wonderweek.dart';
 import 'package:baby_index_module/chart.dart';
 import 'package:baby_index_module/app_util.dart';
 import 'package:baby_index_module/chart_detail_fullscreen.dart';
@@ -13,6 +14,7 @@ import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import 'IndexBabyScreen.dart';
+import 'data_chart_wonderweek.dart';
 
 class Home extends StatefulWidget {
   static final heightTextField = 40.0;
@@ -429,6 +431,19 @@ class _HomeState extends State<Home> {
           padding: const EdgeInsets.only(left: 12, top: 10),
           child: Text('Thời điểm nhõng nhẽo của trẻ'),
         ),
+        BuildChartWonderWeek7(),
+        BuildChartWonderWeek14(),
+        BuildChartWonderWeek21(),
+        BuildChartWonderWeek28(),
+        BuildChartWonderWeek35(),
+        BuildChartWonderWeek42(),
+        BuildChartWonderWeek49(),
+        BuildChartWonderWeek56(),
+        BuildChartWonderWeek63(),
+        BuildChartWonderWeek70(),
+        BuildChartWonderWeek77(),
+        BuildChartWonderWeek84(),
+        BuildNoteWonderWeek(),
       ],
     );
   }
@@ -470,4 +485,5 @@ class _HomeState extends State<Home> {
 //    return DateFormat('dd-MM-yyyy').format(test);
     return difference.toString();
   }
+
 }
