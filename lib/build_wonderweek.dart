@@ -1,16 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
 import 'data_chart_wonderweek.dart';
 
 final double widthBorderChart = 1;
 final double heightWonderWeekChart = 0.7;
+final double heightMarkerBaby = 15;
+final double widthMarkerBaby = 12;
+
 final Color colorBorder = Colors.grey[400];
 final Color colorGrumpy = Colors.grey[350];
 final Color colorPettish = Colors.pink[50];
 
 class BuildChartWonderWeek7 extends StatelessWidget {
+  final List<WonderWeekData> markerBaby;
+
+  BuildChartWonderWeek7({Key key, this.markerBaby}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +65,18 @@ class BuildChartWonderWeek7 extends StatelessWidget {
                           isVisible: true,
                           shape: DataMarkerType.image,
                           image: AssetImage('images/sunny.png')
+                      ),
+                    ),
+                    ScatterSeries<WonderWeekData, double>(
+                      dataSource: markerBaby,
+                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+                      markerSettings: MarkerSettings(
+                          height: heightMarkerBaby,
+                          width: widthMarkerBaby,
+                          isVisible: true,
+                          shape: DataMarkerType.image,
+                          image: AssetImage('images/baby.png')
                       ),
                     ),
                   ],
@@ -179,6 +196,9 @@ class BuildChartWonderWeek7 extends StatelessWidget {
 }
 
 class BuildChartWonderWeek14 extends StatelessWidget {
+  final List<WonderWeekData> markerBaby;
+
+  BuildChartWonderWeek14({Key key, this.markerBaby}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -228,6 +248,18 @@ class BuildChartWonderWeek14 extends StatelessWidget {
                           isVisible: true,
                           shape: DataMarkerType.image,
                           image: AssetImage('images/sunny.png')
+                      ),
+                    ),
+                    ScatterSeries<WonderWeekData, double>(
+                      dataSource: markerBaby,
+                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+                      markerSettings: MarkerSettings(
+                          height: heightMarkerBaby,
+                          width: widthMarkerBaby,
+                          isVisible: true,
+                          shape: DataMarkerType.image,
+                          image: AssetImage('images/baby.png')
                       ),
                     ),
                   ],
@@ -374,6 +406,10 @@ class BuildChartWonderWeek14 extends StatelessWidget {
 }
 
 class BuildChartWonderWeek21 extends StatelessWidget {
+  final List<WonderWeekData> markerBaby;
+
+  BuildChartWonderWeek21({Key key, this.markerBaby}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -422,6 +458,18 @@ class BuildChartWonderWeek21 extends StatelessWidget {
                           isVisible: true,
                           shape: DataMarkerType.image,
                           image: AssetImage('images/sunny.png')
+                      ),
+                    ),
+                    ScatterSeries<WonderWeekData, double>(
+                      dataSource: markerBaby,
+                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+                      markerSettings: MarkerSettings(
+                          height: heightMarkerBaby,
+                          width: widthMarkerBaby,
+                          isVisible: true,
+                          shape: DataMarkerType.image,
+                          image: AssetImage('images/baby.png')
                       ),
                     ),
                   ],
@@ -550,6 +598,9 @@ class BuildChartWonderWeek21 extends StatelessWidget {
 }
 
 class BuildChartWonderWeek28 extends StatelessWidget {
+  final List<WonderWeekData> markerBaby;
+
+  BuildChartWonderWeek28({Key key, this.markerBaby}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -599,6 +650,18 @@ class BuildChartWonderWeek28 extends StatelessWidget {
                           isVisible: true,
                           shape: DataMarkerType.image,
                           image: AssetImage('images/sunny.png')
+                      ),
+                    ),
+                    ScatterSeries<WonderWeekData, double>(
+                      dataSource: markerBaby,
+                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+                      markerSettings: MarkerSettings(
+                          height: heightMarkerBaby,
+                          width: widthMarkerBaby,
+                          isVisible: true,
+                          shape: DataMarkerType.image,
+                          image: AssetImage('images/baby.png')
                       ),
                     ),
                   ],
@@ -727,6 +790,9 @@ class BuildChartWonderWeek28 extends StatelessWidget {
 }
 
 class BuildChartWonderWeek35 extends StatelessWidget {
+  final List<WonderWeekData> markerBaby;
+
+  BuildChartWonderWeek35({Key key, this.markerBaby}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -764,6 +830,18 @@ class BuildChartWonderWeek35 extends StatelessWidget {
                           isVisible: true,
                           shape: DataMarkerType.image,
                           image: AssetImage('images/sunny.png')
+                      ),
+                    ),
+                    ScatterSeries<WonderWeekData, double>(
+                      dataSource: markerBaby,
+                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+                      markerSettings: MarkerSettings(
+                          height: heightMarkerBaby,
+                          width: widthMarkerBaby,
+                          isVisible: true,
+                          shape: DataMarkerType.image,
+                          image: AssetImage('images/baby.png')
                       ),
                     ),
                   ],
@@ -901,6 +979,9 @@ class BuildChartWonderWeek35 extends StatelessWidget {
 }
 
 class BuildChartWonderWeek42 extends StatelessWidget {
+  final List<WonderWeekData> markerBaby;
+
+  BuildChartWonderWeek42({Key key, this.markerBaby}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -950,6 +1031,18 @@ class BuildChartWonderWeek42 extends StatelessWidget {
                           isVisible: true,
                           shape: DataMarkerType.image,
                           image: AssetImage('images/sunny.png')
+                      ),
+                    ),
+                    ScatterSeries<WonderWeekData, double>(
+                      dataSource: markerBaby,
+                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+                      markerSettings: MarkerSettings(
+                          height: heightMarkerBaby,
+                          width: widthMarkerBaby,
+                          isVisible: true,
+                          shape: DataMarkerType.image,
+                          image: AssetImage('images/baby.png')
                       ),
                     ),
                   ],
@@ -1078,6 +1171,9 @@ class BuildChartWonderWeek42 extends StatelessWidget {
 }
 
 class BuildChartWonderWeek49 extends StatelessWidget {
+  final List<WonderWeekData> markerBaby;
+
+  BuildChartWonderWeek49({Key key, this.markerBaby}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -1127,6 +1223,18 @@ class BuildChartWonderWeek49 extends StatelessWidget {
                           isVisible: true,
                           shape: DataMarkerType.image,
                           image: AssetImage('images/sunny.png')
+                      ),
+                    ),
+                    ScatterSeries<WonderWeekData, double>(
+                      dataSource: markerBaby,
+                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+                      markerSettings: MarkerSettings(
+                          height: heightMarkerBaby,
+                          width: widthMarkerBaby,
+                          isVisible: true,
+                          shape: DataMarkerType.image,
+                          image: AssetImage('images/baby.png')
                       ),
                     ),
                   ],
@@ -1247,6 +1355,10 @@ class BuildChartWonderWeek49 extends StatelessWidget {
 
 class BuildChartWonderWeek56 extends StatelessWidget {
 
+  final List<WonderWeekData> markerBaby;
+
+  BuildChartWonderWeek56({Key key, this.markerBaby}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -1295,6 +1407,18 @@ class BuildChartWonderWeek56 extends StatelessWidget {
                           isVisible: true,
                           shape: DataMarkerType.image,
                           image: AssetImage('images/sunny.png')
+                      ),
+                    ),
+                    ScatterSeries<WonderWeekData, double>(
+                      dataSource: markerBaby,
+                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+                      markerSettings: MarkerSettings(
+                          height: heightMarkerBaby,
+                          width: widthMarkerBaby,
+                          isVisible: true,
+                          shape: DataMarkerType.image,
+                          image: AssetImage('images/baby.png')
                       ),
                     ),
                   ],
@@ -1423,6 +1547,9 @@ class BuildChartWonderWeek56 extends StatelessWidget {
 }
 
 class BuildChartWonderWeek63 extends StatelessWidget {
+  final List<WonderWeekData> markerBaby;
+
+  BuildChartWonderWeek63({Key key, this.markerBaby}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -1472,6 +1599,18 @@ class BuildChartWonderWeek63 extends StatelessWidget {
                           isVisible: true,
                           shape: DataMarkerType.image,
                           image: AssetImage('images/sunny.png')
+                      ),
+                    ),
+                    ScatterSeries<WonderWeekData, double>(
+                      dataSource: markerBaby,
+                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+                      markerSettings: MarkerSettings(
+                          height: heightMarkerBaby,
+                          width: widthMarkerBaby,
+                          isVisible: true,
+                          shape: DataMarkerType.image,
+                          image: AssetImage('images/baby.png')
                       ),
                     ),
                   ],
@@ -1591,6 +1730,9 @@ class BuildChartWonderWeek63 extends StatelessWidget {
 }
 
 class BuildChartWonderWeek70 extends StatelessWidget {
+  final List<WonderWeekData> markerBaby;
+
+  BuildChartWonderWeek70({Key key, this.markerBaby}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -1628,6 +1770,18 @@ class BuildChartWonderWeek70 extends StatelessWidget {
                           isVisible: true,
                           shape: DataMarkerType.image,
                           image: AssetImage('images/sunny.png')
+                      ),
+                    ),
+                    ScatterSeries<WonderWeekData, double>(
+                      dataSource: markerBaby,
+                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+                      markerSettings: MarkerSettings(
+                          height: heightMarkerBaby,
+                          width: widthMarkerBaby,
+                          isVisible: true,
+                          shape: DataMarkerType.image,
+                          image: AssetImage('images/baby.png')
                       ),
                     ),
                   ],
@@ -1747,6 +1901,9 @@ class BuildChartWonderWeek70 extends StatelessWidget {
 }
 
 class BuildChartWonderWeek77 extends StatelessWidget {
+  final List<WonderWeekData> markerBaby;
+
+  BuildChartWonderWeek77({Key key, this.markerBaby}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -1784,6 +1941,18 @@ class BuildChartWonderWeek77 extends StatelessWidget {
                           isVisible: true,
                           shape: DataMarkerType.image,
                           image: AssetImage('images/cloud.png')
+                      ),
+                    ),
+                    ScatterSeries<WonderWeekData, double>(
+                      dataSource: markerBaby,
+                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+                      markerSettings: MarkerSettings(
+                          height: heightMarkerBaby,
+                          width: widthMarkerBaby,
+                          isVisible: true,
+                          shape: DataMarkerType.image,
+                          image: AssetImage('images/baby.png')
                       ),
                     ),
                   ],
@@ -1912,6 +2081,10 @@ class BuildChartWonderWeek77 extends StatelessWidget {
 }
 
 class BuildChartWonderWeek84 extends StatelessWidget {
+  final List<WonderWeekData> markerBaby;
+
+  BuildChartWonderWeek84({Key key, this.markerBaby}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -1948,6 +2121,18 @@ class BuildChartWonderWeek84 extends StatelessWidget {
                           isVisible: true,
                           shape: DataMarkerType.image,
                           image: AssetImage('images/sunny.png')
+                      ),
+                    ),
+                    ScatterSeries<WonderWeekData, double>(
+                      dataSource: markerBaby,
+                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+                      markerSettings: MarkerSettings(
+                          height: heightMarkerBaby,
+                          width: widthMarkerBaby,
+                          isVisible: true,
+                          shape: DataMarkerType.image,
+                          image: AssetImage('images/baby.png')
                       ),
                     ),
                   ],
@@ -2132,23 +2317,24 @@ class BuildNoteWonderWeek extends StatelessWidget{
           ),
           Padding(
             padding: const EdgeInsets.only(top: 6),
-            child: Container(
-              child: Row(
-                children: [
-                  Container(
-                    width: 23,
-                    height: 17,
-                    color: colorPettish,
-                  ) ,
-                  Padding(
-                    padding: const EdgeInsets.only(left: 7.5),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 23,
+                  height: 17,
+                  margin: const EdgeInsets.only(right: 7.5),
+                  color: colorPettish,
+                ) ,
+                Container(
+                  child: Flexible(
                     child: Text(
                       'Khi bé trở nên gắt gỏng trong khoảng thời gian từ tuần 29-31, đây không phải là dấu hiệu bắt đầu từ một thời kỳ nhõng nhẽo mới. Đơn giản chỉ là vào thời điểm này của cuộc đời, trẻ sơ sinh bắt đầu nhận ra rằng mẹ đang bỏ đi. Kỹ năng xác định khoảng cách của bé đang hoàn thiện',
                       style: TextStyle(fontSize: 12),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
         ],

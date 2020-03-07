@@ -1,20 +1,16 @@
-import 'dart:ffi';
-
-import 'package:baby_index_module/DetailIndexBabyScreen.dart';
 import 'package:baby_index_module/IndexBaby.dart';
 import 'package:baby_index_module/build_wonderweek.dart';
 import 'package:baby_index_module/chart.dart';
 import 'package:baby_index_module/app_util.dart';
 import 'package:baby_index_module/chart_detail_fullscreen.dart';
+import 'package:baby_index_module/data_chart_wonderweek.dart';
 import 'package:baby_index_module/table_index_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
 import 'IndexBabyScreen.dart';
-import 'data_chart_wonderweek.dart';
 
 class Home extends StatefulWidget {
   static final heightTextField = 40.0;
@@ -31,6 +27,19 @@ class _HomeState extends State<Home> {
   final databaseReference = Firestore.instance;
   DateTime _date = DateTime.now();
   var txtDate = DateFormat('dd-MM-yyyy').format(DateTime.now());
+
+  var markerBaby = <WonderWeekData>[];
+
+  @override
+  void initState() {
+    super.initState();
+    var date1 = DateTime.parse('2019-02-02');
+    var date2 = DateTime.parse('2020-03-06');
+    final difference = date2.difference(date1).inDays;
+    var week = num.parse((difference/7).toStringAsFixed(2));
+    markerBaby = [WonderWeekData(x: week, y: heightWonderWeekChart)];
+    print('Week: $week');
+  }
 
   @override
   void dispose() {
@@ -425,24 +434,24 @@ class _HomeState extends State<Home> {
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 12, top: 12),
-          child: Text('Wonder Week', style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
+          child: Text('Wonder Week', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 12, top: 10),
           child: Text('Thời điểm nhõng nhẽo của trẻ'),
         ),
-        BuildChartWonderWeek7(),
-        BuildChartWonderWeek14(),
-        BuildChartWonderWeek21(),
-        BuildChartWonderWeek28(),
-        BuildChartWonderWeek35(),
-        BuildChartWonderWeek42(),
-        BuildChartWonderWeek49(),
-        BuildChartWonderWeek56(),
-        BuildChartWonderWeek63(),
-        BuildChartWonderWeek70(),
-        BuildChartWonderWeek77(),
-        BuildChartWonderWeek84(),
+        BuildChartWonderWeek7(markerBaby: markerBaby,),
+        BuildChartWonderWeek14(markerBaby: markerBaby,),
+        BuildChartWonderWeek21(markerBaby: markerBaby,),
+        BuildChartWonderWeek28(markerBaby: markerBaby,),
+        BuildChartWonderWeek35(markerBaby: markerBaby,),
+        BuildChartWonderWeek42(markerBaby: markerBaby,),
+        BuildChartWonderWeek49(markerBaby: markerBaby,),
+        BuildChartWonderWeek56(markerBaby: markerBaby,),
+        BuildChartWonderWeek63(markerBaby: markerBaby,),
+        BuildChartWonderWeek70(markerBaby: markerBaby,),
+        BuildChartWonderWeek77(markerBaby: markerBaby,),
+        BuildChartWonderWeek84(markerBaby: markerBaby,),
         BuildNoteWonderWeek(),
       ],
     );
@@ -478,8 +487,8 @@ class _HomeState extends State<Home> {
   }
 
   String getMonthTooltip() {
-    var date1 = DateTime.parse('2019-01-02');
-    var date2 = DateTime.parse('2020-02-22');
+    var date1 = DateTime.parse('2019-02-02');
+    var date2 = DateTime.parse('2020-03-06');
     final difference = date2.difference(date1).inDays;
     var test = date1.add(Duration(days: 411));
 //    return DateFormat('dd-MM-yyyy').format(test);
