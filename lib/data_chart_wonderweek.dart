@@ -33,7 +33,7 @@ class WonderWeekData {
   final num yValue11;
 }
 
-var week7data = [
+final List<WonderWeekData> week7data = <WonderWeekData>[
   WonderWeekData(
     x: 0,
     y: 1,
@@ -48,7 +48,7 @@ var week7data = [
   )
 ];
 
-var week14data = [
+final List<WonderWeekData> week14data = <WonderWeekData>[
   WonderWeekData(
     x: 0,
     y: 7,
@@ -66,7 +66,7 @@ var week14data = [
   )
 ];
 
-var week21data = [
+final List<WonderWeekData> week21data = <WonderWeekData>[
   WonderWeekData(
     x: 0,
     y: 14,
@@ -82,7 +82,7 @@ var week21data = [
   )
 ];
 
-var week28data = [
+final List<WonderWeekData> week28data = <WonderWeekData>[
   WonderWeekData(
     x: 0,
     y: 21,
@@ -98,7 +98,7 @@ var week28data = [
   )
 ];
 
-var week35data = [
+final List<WonderWeekData> week35data = <WonderWeekData>[
   WonderWeekData(
     x: 0,
     y: 28,
@@ -115,7 +115,7 @@ var week35data = [
   )
 ];
 
-var week42data = [
+final List<WonderWeekData> week42data = <WonderWeekData>[
   WonderWeekData(
     x: 0,
     y: 35,
@@ -131,7 +131,7 @@ var week42data = [
   )
 ];
 
-var week49data = [
+final List<WonderWeekData> week49data = <WonderWeekData>[
   WonderWeekData(
     x: 0,
     y: 42,
@@ -146,7 +146,7 @@ var week49data = [
   )
 ];
 
-var week56data = [
+final List<WonderWeekData> week56data = <WonderWeekData>[
   WonderWeekData(
     x: 0,
     y: 49,
@@ -162,7 +162,7 @@ var week56data = [
   )
 ];
 
-var week63data = [
+final List<WonderWeekData> week63data = <WonderWeekData>[
   WonderWeekData(
     x: 0,
     y: 56,
@@ -177,7 +177,7 @@ var week63data = [
   )
 ];
 
-var week70data = [
+final List<WonderWeekData> week70data = <WonderWeekData>[
   WonderWeekData(
     x: 0,
     y: 63,
@@ -192,7 +192,7 @@ var week70data = [
   )
 ];
 
-var week77data = [
+final List<WonderWeekData> week77data = <WonderWeekData>[
   WonderWeekData(
     x: 0,
     y: 70,
@@ -208,7 +208,7 @@ var week77data = [
   )
 ];
 
-var week84data = [
+final List<WonderWeekData> week84data = <WonderWeekData>[
   WonderWeekData(
     x: 0,
     y: 77,
@@ -222,84 +222,84 @@ var week84data = [
   )
 ];
 
-var markerWeek7DataRain = [
+final List<WonderWeekData> markerWeek7DataRain = <WonderWeekData>[
   WonderWeekData(x: 5, y: heightWonderWeekChart),
 ];
 
-var markerWeek14DataRain = [
+final List<WonderWeekData> markerWeek14DataRain = <WonderWeekData>[
   WonderWeekData(x: 8, y: heightWonderWeekChart),
   WonderWeekData(x: 12, y: heightWonderWeekChart),
 ];
 
-var markerWeek21DataRain = [
+final List<WonderWeekData> markerWeek21DataRain = <WonderWeekData>[
   WonderWeekData(x: 17, y: heightWonderWeekChart),
 ];
 
-var markerWeek28DataRain = [
+final List<WonderWeekData> markerWeek28DataRain = <WonderWeekData>[
   WonderWeekData(x: 21, y: heightWonderWeekChart),
 ];
 
-var markerWeek42DataRain = [
+final List<WonderWeekData> markerWeek42DataRain = <WonderWeekData>[
   WonderWeekData(x: 36, y: heightWonderWeekChart),
 ];
 
-var markerWeek49DataRain = [
+final List<WonderWeekData> markerWeek49DataRain = <WonderWeekData>[
   WonderWeekData(x: 44, y: heightWonderWeekChart),
 ];
 
-var markerWeek56DataRain = [
+final List<WonderWeekData> markerWeek56DataRain = <WonderWeekData>[
   WonderWeekData(x: 53, y: heightWonderWeekChart),
 ];
 
-var markerWeek63DataRain = [
+final List<WonderWeekData> markerWeek63DataRain = <WonderWeekData>[
   WonderWeekData(x: 61.5, y: heightWonderWeekChart),
 ];
 
-var markerWeek77DataRain = [
+final List<WonderWeekData> markerWeek77DataRain = <WonderWeekData>[
   WonderWeekData(x: 72.5, y: heightWonderWeekChart),
 ];
 
-var markerWeek7DataDocile = [
+final List<WonderWeekData> markerWeek7DataDocile = <WonderWeekData>[
   WonderWeekData(x: 6, y: heightWonderWeekChart),
 ];
 
-var markerWeek14DataDocile = [
+final List<WonderWeekData> markerWeek14DataDocile = <WonderWeekData>[
   WonderWeekData(x: 10, y: heightWonderWeekChart),
   WonderWeekData(x: 13, y: heightWonderWeekChart),
 ];
 
-var markerWeek21DataDocile = [
+final List<WonderWeekData> markerWeek21DataDocile = <WonderWeekData>[
   WonderWeekData(x: 21, y: heightWonderWeekChart),
 ];
 
-var markerWeek28DataDocile = [
+final List<WonderWeekData> markerWeek28DataDocile = <WonderWeekData>[
   WonderWeekData(x: 26, y: heightWonderWeekChart),
 ];
 
-var markerWeek35DataDocile = [
+final List<WonderWeekData> markerWeek35DataDocile = <WonderWeekData>[
   WonderWeekData(x: 31, y: heightWonderWeekChart),
 ];
 
-var markerWeek42DataDocile = [
+final List<WonderWeekData> markerWeek42DataDocile = <WonderWeekData>[
   WonderWeekData(x: 39, y: heightWonderWeekChart),
 ];
 
-var markerWeek49DataDocile = [
+final List<WonderWeekData> markerWeek49DataDocile = <WonderWeekData>[
   WonderWeekData(x: 49, y: heightWonderWeekChart),
 ];
 
-var markerWeek56DataDocile = [
+final List<WonderWeekData> markerWeek56DataDocile = <WonderWeekData>[
   WonderWeekData(x: 49, y: heightWonderWeekChart),
 ];
 
-var markerWeek63DataDocile = [
+final List<WonderWeekData> markerWeek63DataDocile = <WonderWeekData>[
   WonderWeekData(x: 58, y: heightWonderWeekChart),
 ];
 
-var markerWeek70DataDocile = [
+final List<WonderWeekData> markerWeek70DataDocile = <WonderWeekData>[
   WonderWeekData(x: 66, y: heightWonderWeekChart),
 ];
 
-var markerWeek84DataDocile = [
+final List<WonderWeekData> markerWeek84DataDocile = <WonderWeekData>[
   WonderWeekData(x: 79, y: heightWonderWeekChart),
 ];

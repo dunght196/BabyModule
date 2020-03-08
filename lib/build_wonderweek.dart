@@ -12,10 +12,19 @@ final Color colorBorder = Colors.grey[400];
 final Color colorGrumpy = Colors.grey[350];
 final Color colorPettish = Colors.pink[50];
 
-class BuildChartWonderWeek7 extends StatelessWidget {
+class BuildChartWonderWeek7 extends StatefulWidget {
   final List<WonderWeekData> markerBaby;
 
   BuildChartWonderWeek7({Key key, this.markerBaby}) : super(key: key);
+
+  @override
+  _BuildChartWonderWeek7State createState() => _BuildChartWonderWeek7State(markerBaby);
+}
+
+class _BuildChartWonderWeek7State extends State<BuildChartWonderWeek7> {
+  final List<WonderWeekData> markerBaby;
+
+  _BuildChartWonderWeek7State(this.markerBaby);
 
   @override
   Widget build(BuildContext context) {
@@ -48,11 +57,11 @@ class BuildChartWonderWeek7 extends StatelessWidget {
                       xValueMapper: (WonderWeekData sales, _) => sales.x,
                       yValueMapper: (WonderWeekData sales, _) => sales.y,
                       markerSettings: MarkerSettings(
-                        height: 11,
-                        width: 11,
-                        isVisible: true,
-                        shape: DataMarkerType.image,
-                        image: AssetImage('images/cloud.png')
+                          height: 11,
+                          width: 11,
+                          isVisible: true,
+                          shape: DataMarkerType.image,
+                          image: AssetImage('images/cloud.png')
                       ),
                     ),
                     ScatterSeries<WonderWeekData, int>(
@@ -171,7 +180,7 @@ class BuildChartWonderWeek7 extends StatelessWidget {
         borderWidth: widthBorderChart,
         width: heightWonderWeekChart,
         xValueMapper: (WonderWeekData sales, _) => sales.x,
-          yValueMapper: (WonderWeekData sales, _) => sales.yValue6,
+        yValueMapper: (WonderWeekData sales, _) => sales.yValue6,
       ),
       StackedBarSeries<WonderWeekData, int>(
         dataSource: week7data,
@@ -195,10 +204,20 @@ class BuildChartWonderWeek7 extends StatelessWidget {
   }
 }
 
-class BuildChartWonderWeek14 extends StatelessWidget {
+class BuildChartWonderWeek14 extends StatefulWidget {
   final List<WonderWeekData> markerBaby;
 
   BuildChartWonderWeek14({Key key, this.markerBaby}) : super(key: key);
+
+  @override
+  _BuildChartWonderWeek14State createState() => _BuildChartWonderWeek14State(markerBaby);
+
+}
+
+class _BuildChartWonderWeek14State extends State<BuildChartWonderWeek14> {
+  final List<WonderWeekData> markerBaby;
+
+  _BuildChartWonderWeek14State(this.markerBaby);
 
   @override
   Widget build(BuildContext context) {
@@ -405,10 +424,20 @@ class BuildChartWonderWeek14 extends StatelessWidget {
   }
 }
 
-class BuildChartWonderWeek21 extends StatelessWidget {
+class BuildChartWonderWeek21 extends StatefulWidget {
   final List<WonderWeekData> markerBaby;
 
   BuildChartWonderWeek21({Key key, this.markerBaby}) : super(key: key);
+
+  @override
+  _BuildChartWonderWeek21State createState() => _BuildChartWonderWeek21State(markerBaby);
+
+}
+
+class _BuildChartWonderWeek21State extends State<BuildChartWonderWeek21> {
+  final List<WonderWeekData> markerBaby;
+
+  _BuildChartWonderWeek21State(this.markerBaby);
 
   @override
   Widget build(BuildContext context) {
@@ -595,12 +624,23 @@ class BuildChartWonderWeek21 extends StatelessWidget {
       ),
     ];
   }
+
 }
 
-class BuildChartWonderWeek28 extends StatelessWidget {
+class BuildChartWonderWeek28 extends StatefulWidget {
   final List<WonderWeekData> markerBaby;
 
   BuildChartWonderWeek28({Key key, this.markerBaby}) : super(key: key);
+
+  @override
+  _BuildChartWonderWeek28State createState() => _BuildChartWonderWeek28State(markerBaby);
+
+}
+
+class _BuildChartWonderWeek28State extends State<BuildChartWonderWeek28>{
+  final List<WonderWeekData> markerBaby;
+
+  _BuildChartWonderWeek28State(this.markerBaby);
 
   @override
   Widget build(BuildContext context) {
@@ -789,10 +829,19 @@ class BuildChartWonderWeek28 extends StatelessWidget {
   }
 }
 
-class BuildChartWonderWeek35 extends StatelessWidget {
+class BuildChartWonderWeek35 extends StatefulWidget {
   final List<WonderWeekData> markerBaby;
 
   BuildChartWonderWeek35({Key key, this.markerBaby}) : super(key: key);
+
+  @override
+  _BuildChartWonderWeek35State createState() => _BuildChartWonderWeek35State(markerBaby);
+}
+
+class _BuildChartWonderWeek35State extends State<BuildChartWonderWeek35> {
+  final List<WonderWeekData> markerBaby;
+
+  _BuildChartWonderWeek35State(this.markerBaby);
 
   @override
   Widget build(BuildContext context) {
@@ -978,10 +1027,19 @@ class BuildChartWonderWeek35 extends StatelessWidget {
   }
 }
 
-class BuildChartWonderWeek42 extends StatelessWidget {
+class BuildChartWonderWeek42 extends StatefulWidget {
   final List<WonderWeekData> markerBaby;
 
   BuildChartWonderWeek42({Key key, this.markerBaby}) : super(key: key);
+
+  @override
+  _BuildChartWonderWeek42State createState() => _BuildChartWonderWeek42State(markerBaby);
+}
+
+class _BuildChartWonderWeek42State extends State<BuildChartWonderWeek42> {
+  final List<WonderWeekData> markerBaby;
+
+  _BuildChartWonderWeek42State(this.markerBaby);
 
   @override
   Widget build(BuildContext context) {
@@ -1170,10 +1228,19 @@ class BuildChartWonderWeek42 extends StatelessWidget {
   }
 }
 
-class BuildChartWonderWeek49 extends StatelessWidget {
+class BuildChartWonderWeek49 extends StatefulWidget {
   final List<WonderWeekData> markerBaby;
 
   BuildChartWonderWeek49({Key key, this.markerBaby}) : super(key: key);
+
+  _BuildChartWonderWeek49State createState() => _BuildChartWonderWeek49State(markerBaby);
+
+}
+
+class _BuildChartWonderWeek49State extends State<BuildChartWonderWeek49> {
+  final List<WonderWeekData> markerBaby;
+
+  _BuildChartWonderWeek49State(this.markerBaby);
 
   @override
   Widget build(BuildContext context) {
@@ -1353,11 +1420,19 @@ class BuildChartWonderWeek49 extends StatelessWidget {
   }
 }
 
-class BuildChartWonderWeek56 extends StatelessWidget {
+class BuildChartWonderWeek56 extends StatefulWidget {
 
   final List<WonderWeekData> markerBaby;
 
   BuildChartWonderWeek56({Key key, this.markerBaby}) : super(key: key);
+
+  _BuildChartWonderWeek56State createState() => _BuildChartWonderWeek56State(markerBaby);
+}
+
+class _BuildChartWonderWeek56State extends State<BuildChartWonderWeek56> {
+  final List<WonderWeekData> markerBaby;
+
+  _BuildChartWonderWeek56State(this.markerBaby);
 
   @override
   Widget build(BuildContext context) {
@@ -1546,10 +1621,18 @@ class BuildChartWonderWeek56 extends StatelessWidget {
   }
 }
 
-class BuildChartWonderWeek63 extends StatelessWidget {
+class BuildChartWonderWeek63 extends StatefulWidget {
   final List<WonderWeekData> markerBaby;
 
   BuildChartWonderWeek63({Key key, this.markerBaby}) : super(key: key);
+
+  _BuildChartWonderWeek63State createState() => _BuildChartWonderWeek63State(markerBaby);
+}
+
+class _BuildChartWonderWeek63State extends State<BuildChartWonderWeek63> {
+  final List<WonderWeekData> markerBaby;
+
+  _BuildChartWonderWeek63State(this.markerBaby);
 
   @override
   Widget build(BuildContext context) {
@@ -1729,10 +1812,18 @@ class BuildChartWonderWeek63 extends StatelessWidget {
   }
 }
 
-class BuildChartWonderWeek70 extends StatelessWidget {
+class BuildChartWonderWeek70 extends StatefulWidget {
   final List<WonderWeekData> markerBaby;
 
   BuildChartWonderWeek70({Key key, this.markerBaby}) : super(key: key);
+
+  _BuildChartWonderWeek70State createState() => _BuildChartWonderWeek70State(markerBaby);
+}
+
+class _BuildChartWonderWeek70State extends State<BuildChartWonderWeek70> {
+  final List<WonderWeekData> markerBaby;
+
+  _BuildChartWonderWeek70State(this.markerBaby);
 
   @override
   Widget build(BuildContext context) {
@@ -1900,10 +1991,18 @@ class BuildChartWonderWeek70 extends StatelessWidget {
   }
 }
 
-class BuildChartWonderWeek77 extends StatelessWidget {
+class BuildChartWonderWeek77 extends StatefulWidget {
   final List<WonderWeekData> markerBaby;
 
   BuildChartWonderWeek77({Key key, this.markerBaby}) : super(key: key);
+
+  _BuildChartWonderWeek77State createState() => _BuildChartWonderWeek77State(markerBaby);
+}
+
+class _BuildChartWonderWeek77State extends State<BuildChartWonderWeek77> {
+  final List<WonderWeekData> markerBaby;
+
+  _BuildChartWonderWeek77State(this.markerBaby);
 
   @override
   Widget build(BuildContext context) {
@@ -2080,10 +2179,18 @@ class BuildChartWonderWeek77 extends StatelessWidget {
   }
 }
 
-class BuildChartWonderWeek84 extends StatelessWidget {
+class BuildChartWonderWeek84 extends StatefulWidget {
   final List<WonderWeekData> markerBaby;
 
   BuildChartWonderWeek84({Key key, this.markerBaby}) : super(key: key);
+
+  _BuildChartWonderWeek84State createState() => _BuildChartWonderWeek84State(markerBaby);
+}
+
+class _BuildChartWonderWeek84State extends State<BuildChartWonderWeek84> {
+  final List<WonderWeekData> markerBaby;
+
+  _BuildChartWonderWeek84State(this.markerBaby);
 
   @override
   Widget build(BuildContext context) {
