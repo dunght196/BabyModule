@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
     var date1 = DateTime.parse('2019-02-02');
     var date2 = DateTime.parse('2020-03-06');
     final difference = date2.difference(date1).inDays;
-    var week = num.parse((difference/7).toStringAsFixed(2));
+    var week = num.parse((difference / 7).toStringAsFixed(2));
     markerBaby = [WonderWeekData(x: week, y: heightWonderWeekChart)];
     print('Week: $week');
   }
@@ -219,24 +219,23 @@ class _HomeState extends State<Home> {
         ),
         Expanded(
             child: GestureDetector(
-              onTap: () {
-                _selectDate(context);
-              },
-              child: Container(
-                height: Home.heightTextField,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(20),
-                        bottomRight: Radius.circular(20)),
-                    border: Border.all(color: Colors.grey[350])),
-                child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Text(
-                        DateFormat('dd-MM-yyyy').format(_date)),
-                    )),
-              ),
+          onTap: () {
+            _selectDate(context);
+          },
+          child: Container(
+            height: Home.heightTextField,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    bottomRight: Radius.circular(20)),
+                border: Border.all(color: Colors.grey[350])),
+            child: Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(DateFormat('dd-MM-yyyy').format(_date)),
+                )),
+          ),
         )),
       ],
     );
@@ -251,15 +250,15 @@ class _HomeState extends State<Home> {
             children: <Widget>[
               Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text(title),
+                padding: const EdgeInsets.only(left: 10),
+                child: Text(title),
               )),
               GestureDetector(
                 onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => TableIndexDataScreen())
-                  );
+                      MaterialPageRoute(
+                          builder: (context) => TableIndexDataScreen()));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 10),
@@ -271,8 +270,10 @@ class _HomeState extends State<Home> {
           Padding(
             padding: EdgeInsets.only(top: 10),
             child: SfCartesianChart(
+                plotAreaBorderWidth: 0,
                 primaryXAxis: DateTimeAxis(
-                  dateFormat: DateFormat.yMd(),
+                  dateFormat: DateFormat.m(),
+                  majorTickLines: MajorTickLines(size: 0),
                 ),
                 zoomPanBehavior:
                     ZoomPanBehavior(enablePinching: true, enablePanning: true),
@@ -281,10 +282,9 @@ class _HomeState extends State<Home> {
                     header: '',
                     canShowMarker: false,
                     format: getMonthTooltip(),
-                    color: Colors.grey
-                ),
+                    color: Colors.grey),
                 series: <ChartSeries>[
-                 /* StackedAreaSeries<SalesData, double>(
+                  /* StackedAreaSeries<SalesData, double>(
                       opacity: 0.5,
                       borderColor: Colors.blue,
                       borderWidth: 3,
@@ -303,14 +303,14 @@ class _HomeState extends State<Home> {
                       yValueMapper: (SalesData sales, _) => sales.sales,
                       enableTooltip: true),*/
                   ScatterSeries<SalesData, DateTime>(
-                      color: Colors.blue,
+                    color: Colors.blue,
 //                      dashArray: <double>[5, 5],
-                      dataSource: myFakeMobileData1,
-                      xValueMapper: (SalesData sales, _) => sales.year,
-                      yValueMapper: (SalesData sales, _) => sales.sales,
-                      markerSettings: MarkerSettings(
-                          isVisible: true,
-                      ),
+                    dataSource: myFakeMobileData1,
+                    xValueMapper: (SalesData sales, _) => sales.year,
+                    yValueMapper: (SalesData sales, _) => sales.sales,
+                    markerSettings: MarkerSettings(
+                      isVisible: true,
+                    ),
                   ),
                 ]),
           ),
@@ -380,8 +380,8 @@ class _HomeState extends State<Home> {
                       onTap: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => IndexBabyScreen())
-                        );
+                            MaterialPageRoute(
+                                builder: (context) => IndexBabyScreen()));
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -401,8 +401,10 @@ class _HomeState extends State<Home> {
                       onTap: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => ChartDetailFullScreen(title: title,))
-                        );
+                            MaterialPageRoute(
+                                builder: (context) => ChartDetailFullScreen(
+                                      title: title,
+                                    )));
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -434,24 +436,49 @@ class _HomeState extends State<Home> {
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 12, top: 12),
-          child: Text('Wonder Week', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          child: Text('Wonder Week',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 12, top: 10),
           child: Text('Thời điểm nhõng nhẽo của trẻ'),
         ),
-        BuildChartWonderWeek7(markerBaby: markerBaby,),
-        BuildChartWonderWeek14(markerBaby: markerBaby,),
-        BuildChartWonderWeek21(markerBaby: markerBaby,),
-        BuildChartWonderWeek28(markerBaby: markerBaby,),
-        BuildChartWonderWeek35(markerBaby: markerBaby,),
-        BuildChartWonderWeek42(markerBaby: markerBaby,),
-        BuildChartWonderWeek49(markerBaby: markerBaby,),
-        BuildChartWonderWeek56(markerBaby: markerBaby,),
-        BuildChartWonderWeek63(markerBaby: markerBaby,),
-        BuildChartWonderWeek70(markerBaby: markerBaby,),
-        BuildChartWonderWeek77(markerBaby: markerBaby,),
-        BuildChartWonderWeek84(markerBaby: markerBaby,),
+        BuildChartWonderWeek7(
+          markerBaby: markerBaby,
+        ),
+        BuildChartWonderWeek14(
+          markerBaby: markerBaby,
+        ),
+        BuildChartWonderWeek21(
+          markerBaby: markerBaby,
+        ),
+        BuildChartWonderWeek28(
+          markerBaby: markerBaby,
+        ),
+        BuildChartWonderWeek35(
+          markerBaby: markerBaby,
+        ),
+        BuildChartWonderWeek42(
+          markerBaby: markerBaby,
+        ),
+        BuildChartWonderWeek49(
+          markerBaby: markerBaby,
+        ),
+        BuildChartWonderWeek56(
+          markerBaby: markerBaby,
+        ),
+        BuildChartWonderWeek63(
+          markerBaby: markerBaby,
+        ),
+        BuildChartWonderWeek70(
+          markerBaby: markerBaby,
+        ),
+        BuildChartWonderWeek77(
+          markerBaby: markerBaby,
+        ),
+        BuildChartWonderWeek84(
+          markerBaby: markerBaby,
+        ),
         BuildNoteWonderWeek(),
       ],
     );
@@ -494,5 +521,4 @@ class _HomeState extends State<Home> {
 //    return DateFormat('dd-MM-yyyy').format(test);
     return difference.toString();
   }
-
 }
