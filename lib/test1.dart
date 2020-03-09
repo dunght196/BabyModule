@@ -1,3 +1,4 @@
+import 'package:baby_index_module/build_wonderweek.dart';
 import 'package:baby_index_module/data_chart_wonderweek.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,7 @@ class _TestState extends State<Test> {
                   primaryXAxis: NumericAxis(
                     isVisible: true,
                     majorGridLines: MajorGridLines(width: 0),
-                    minimum: 0,
+                    minimum: -1,
                     maximum: 8,
                     interval: 1,
                     majorTickLines: MajorTickLines(size: 0),
@@ -62,7 +63,7 @@ class _TestState extends State<Test> {
                     ScatterSeries<WonderWeekData, double>(
                         isVisible: true,
                         opacity: 0,
-                        dataSource: data2,
+                        dataSource: [WonderWeekData(x: 2.0, y:3)],
                         xValueMapper: (WonderWeekData sales, _) => sales.x,
                         yValueMapper: (WonderWeekData sales, _) => sales.y,
                         dataLabelSettings: DataLabelSettings(
@@ -72,7 +73,7 @@ class _TestState extends State<Test> {
                                 dynamic series,
                                 int pointIndex,
                                 int seriesIndex) {
-                              return Text('0');
+                              return Text('$seriesIndex');
                             })
                     ),
                     ScatterSeries<WonderWeekData, double>(
@@ -88,7 +89,7 @@ class _TestState extends State<Test> {
                                 dynamic series,
                                 int pointIndex,
                                 int seriesIndex) {
-                              return Text('7');
+                              return Text('$seriesIndex');
                             })
                     ),
                   ],
@@ -118,7 +119,7 @@ SfCartesianChart getTrackerBarChart() {
       primaryYAxis: NumericAxis(
         isVisible: true,
         majorGridLines: MajorGridLines(width: 0),
-        minimum: 0,
+        minimum: -1,
         maximum: 8,
         interval: 1,
         majorTickLines: MajorTickLines(size: 0),
@@ -141,7 +142,7 @@ List<StackedBarSeries<WonderWeekData, int>> getStackedBarSeries() {
     StackedBarSeries<WonderWeekData, int>(
       enableTooltip: true,
       dataSource: data1,
-      color: Colors.transparent,
+      color: colorGrumpy,
       borderColor: Colors.grey,
       borderWidth: 1,
       width: 0.26,
@@ -241,8 +242,14 @@ var data1 = [
 
 var data2 = [
   WonderWeekData(
-    x: 0,
+    x: 0.0,
     y: 0.25,
     yValue: 1.25
+  ),
+
+  WonderWeekData(
+      x: 1.0,
+      y: 0.25,
+      yValue: 1.25
   )
 ];

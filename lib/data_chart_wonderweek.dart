@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:baby_index_module/build_wonderweek.dart';
 
 class WonderWeekData {
@@ -16,6 +18,7 @@ class WonderWeekData {
     this.yValue9,
     this.yValue10,
     this.yValue11,
+    this.poinColor
   });
   final dynamic x;
   final num y;
@@ -31,6 +34,7 @@ class WonderWeekData {
   final num yValue9;
   final num yValue10;
   final num yValue11;
+  final Color poinColor;
 }
 
 final List<WonderWeekData> week7data = <WonderWeekData>[
