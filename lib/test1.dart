@@ -1,5 +1,5 @@
 import 'package:baby_index_module/build_wonderweek.dart';
-import 'package:baby_index_module/data_chart_wonderweek.dart';
+import 'package:baby_index_module/data_chart_wonderweek_test.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -23,10 +23,20 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
+
+  var x = 0.0;
+  var y = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    y = (8/7).floor().toDouble();
+    x = 8 - (7*y);
+    print("Tim x: $x");
+  }
+
   @override
   Widget build(BuildContext context) {
-    final w = MediaQuery.of(context).size.width;
-    final h = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: Text('Test'),
@@ -34,7 +44,6 @@ class _TestState extends State<Test> {
       body: ListView(
         children: [
           Container(
-            width: w,
             height: 1100,
             child: Stack(
               children: [
@@ -60,10 +69,34 @@ class _TestState extends State<Test> {
                     majorTickLines: MajorTickLines(size: 0),
                   ),
                   series: <CartesianSeries>[
+//                    ScatterSeries<WonderWeekData, double>(
+//                      dataSource: [],
+//                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+//                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+//                      markerSettings: MarkerSettings(
+//                          height: heightMarkerBaby,
+//                          width: widthMarkerBaby,
+//                          isVisible: true,
+//                          shape: DataMarkerType.image,
+//                          image: AssetImage('images/baby.png')
+//                      ),
+//                    ),
+//                    ScatterSeries<WonderWeekData, double>(
+//                      dataSource: data3,
+//                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+//                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+//                      markerSettings: MarkerSettings(
+//                          height: 11,
+//                          width: 11,
+//                          isVisible: true,
+//                          shape: DataMarkerType.image,
+//                          image: AssetImage('images/cloud.png')
+//                      ),
+//                    ),
                     ScatterSeries<WonderWeekData, double>(
                         isVisible: true,
                         opacity: 0,
-                        dataSource: [WonderWeekData(x: 2.0, y:3)],
+                        dataSource: data2,
                         xValueMapper: (WonderWeekData sales, _) => sales.x,
                         yValueMapper: (WonderWeekData sales, _) => sales.y,
                         dataLabelSettings: DataLabelSettings(
@@ -73,7 +106,8 @@ class _TestState extends State<Test> {
                                 dynamic series,
                                 int pointIndex,
                                 int seriesIndex) {
-                              return Text('$seriesIndex');
+                              print('Data point: $point');
+                              return Text('${7*pointIndex + seriesIndex}');
                             })
                     ),
                     ScatterSeries<WonderWeekData, double>(
@@ -89,8 +123,21 @@ class _TestState extends State<Test> {
                                 dynamic series,
                                 int pointIndex,
                                 int seriesIndex) {
-                              return Text('$seriesIndex');
+                              print('Point index, Series index: $pointIndex, $seriesIndex');
+                              return Text('${7*pointIndex + seriesIndex}');
                             })
+                    ),
+                    ScatterSeries<WonderWeekData, double>(
+                      dataSource: [WonderWeekData(x: x, y: y)],
+                      xValueMapper: (WonderWeekData sales, _) => sales.x,
+                      yValueMapper: (WonderWeekData sales, _) => sales.y,
+                      markerSettings: MarkerSettings(
+                          height: heightMarkerBaby,
+                          width: widthMarkerBaby,
+                          isVisible: true,
+                          shape: DataMarkerType.image,
+                          image: AssetImage('images/baby.png')
+                      ),
                     ),
                   ],
                 ),
@@ -252,4 +299,11 @@ var data2 = [
       y: 0.25,
       yValue: 1.25
   )
+];
+
+var data3 = [
+  WonderWeekData(
+      x: 0.0,
+      y: -0.3,
+  ),
 ];

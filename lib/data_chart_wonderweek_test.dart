@@ -37,56 +37,9 @@ class WonderWeekData {
   final Color poinColor;
 }
 
-class WonderWeekData14 {
-  WonderWeekData14({
-    this.x,
-    this.y,
-    this.xValue,
-    this.yValue,
-    this.yValue2,
-    this.yValue3,
-    this.yValue4,
-    this.yValue5,
-    this.yValue6,
-    this.yValue7,
-    this.yValue8,
-    this.yValue9,
-    this.yValue10,
-    this.yValue11,
-    this.poinColor
-  });
-  final dynamic x;
-  final num y;
-  final dynamic xValue;
-  final num yValue;
-  final num yValue2;
-  final num yValue3;
-  final num yValue4;
-  final num yValue5;
-  final num yValue6;
-  final num yValue7;
-  final num yValue8;
-  final num yValue9;
-  final num yValue10;
-  final num yValue11;
-  final Color poinColor;
-}
-
 final List<WonderWeekData> week7data = <WonderWeekData>[
   WonderWeekData(
     x: 0,
-    y: 1,
-    yValue: 1,
-    yValue2: 1,
-    yValue3: 1,
-    yValue4: 0.5,
-    yValue5: 0.5,
-    yValue6: 0.5,
-    yValue7: 0.5,
-    yValue8: 1,
-  ),
-  WonderWeekData(
-    x: 1,
     y: 1,
     yValue: 1,
     yValue2: 1,
@@ -101,18 +54,19 @@ final List<WonderWeekData> week7data = <WonderWeekData>[
 
 final List<WonderWeekData> week14data = <WonderWeekData>[
   WonderWeekData(
-    x: 1,
-    y: 1,
-    yValue: 1,
-    yValue2: 1,
-    yValue3: 0.5,
+    x: 0,
+    y: 7,
+    yValue: 0.5,
+    yValue2: 0.5,
+    yValue3: 1,
     yValue4: 0.5,
-    yValue5: 1,
-    yValue6: 0.5,
+    yValue5: 0.5,
+    yValue6: 1,
     yValue7: 0.5,
     yValue8: 0.5,
     yValue9: 0.5,
-    yValue10: 1,
+    yValue10: 0.5,
+    yValue11: 1,
   )
 ];
 

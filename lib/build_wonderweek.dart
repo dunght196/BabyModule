@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'data_chart_wonderweek.dart';
+import 'data_chart_wonderweek_test.dart';
 
 final double widthBorderChart = 1;
 final double heightWonderWeekChart = 0.7;

@@ -3,8 +3,9 @@ import 'package:baby_index_module/build_wonderweek.dart';
 import 'package:baby_index_module/chart.dart';
 import 'package:baby_index_module/app_util.dart';
 import 'package:baby_index_module/chart_detail_fullscreen.dart';
-import 'package:baby_index_module/data_chart_wonderweek.dart';
+import 'package:baby_index_module/data_chart_wonderweek_test.dart';
 import 'package:baby_index_module/table_index_data.dart';
+import 'package:baby_index_module/wonderweek_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,7 @@ class _HomeState extends State<Home> {
     var date2 = DateTime.parse('2020-03-06');
     final difference = date2.difference(date1).inDays;
     var week = num.parse((difference / 7).toStringAsFixed(2));
-    markerBaby = [WonderWeekData(x: week, y: heightWonderWeekChart)];
+//    markerBaby = [WonderWeekData(x: week, y: heightWonderWeekChart)];
     print('Week: $week');
   }
 
@@ -250,8 +251,8 @@ class _HomeState extends State<Home> {
             children: <Widget>[
               Expanded(
                   child: Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Text(title),
+                    padding: const EdgeInsets.only(left: 10),
+                     child: Text(title),
               )),
               GestureDetector(
                 onTap: () {
@@ -440,10 +441,10 @@ class _HomeState extends State<Home> {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 12, top: 10),
+          padding: const EdgeInsets.only(left: 12, top: 10, bottom: 10),
           child: Text('Thời điểm nhõng nhẽo của trẻ'),
         ),
-        BuildChartWonderWeek7(
+       /* BuildChartWonderWeek7(
           markerBaby: markerBaby,
         ),
         BuildChartWonderWeek14(
@@ -478,7 +479,8 @@ class _HomeState extends State<Home> {
         ),
         BuildChartWonderWeek84(
           markerBaby: markerBaby,
-        ),
+        ),*/
+        BuildWonderWeek(),
         BuildNoteWonderWeek(),
       ],
     );
