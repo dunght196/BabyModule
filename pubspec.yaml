@@ -26,6 +26,7 @@ dependencies:
   cloud_firestore: ^0.13.3
   syncfusion_flutter_charts: ^17.4.46
   intl: ^0.16.1
+  mp_chart: ^0.1.9
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -44,7 +45,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - images/
+    - assets/img/
 
   # To add Flutter specific assets to your application, add an assets section, 
   # like this:

@@ -1,15 +1,14 @@
 import 'package:baby_index_module/IndexBaby.dart';
-import 'package:baby_index_module/build_wonderweek.dart';
 import 'package:baby_index_module/chart.dart';
 import 'package:baby_index_module/app_util.dart';
 import 'package:baby_index_module/chart_detail_fullscreen.dart';
-import 'package:baby_index_module/data_chart_wonderweek_test.dart';
 import 'package:baby_index_module/table_index_data.dart';
 import 'package:baby_index_module/wonderweek_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:mp_chart/mp/core/entry/entry.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'IndexBabyScreen.dart';
 
@@ -29,17 +28,19 @@ class _HomeState extends State<Home> {
   DateTime _date = DateTime.now();
   var txtDate = DateFormat('dd-MM-yyyy').format(DateTime.now());
 
-  var markerBaby = <WonderWeekData>[];
+  var markerBaby = Entry();
 
   @override
   void initState() {
     super.initState();
-    var date1 = DateTime.parse('2019-02-02');
-    var date2 = DateTime.parse('2020-03-06');
+    var date1 = DateTime.parse('2020-01-02');
+    var date2 = DateTime.parse('2020-02-02');
     final difference = date2.difference(date1).inDays;
     var week = num.parse((difference / 7).toStringAsFixed(2));
-//    markerBaby = [WonderWeekData(x: week, y: heightWonderWeekChart)];
-    print('Week: $week');
+    var offsetYBaby = (week/7).floor().toDouble();
+    var offsetXBaby = week - (7*offsetYBaby);
+    markerBaby = Entry(x: offsetXBaby, y: 12-offsetYBaby);
+    print('Week: $difference');
   }
 
   @override
@@ -441,46 +442,10 @@ class _HomeState extends State<Home> {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 12, top: 10, bottom: 10),
+          padding: const EdgeInsets.only(left: 12, top: 10),
           child: Text('Thời điểm nhõng nhẽo của trẻ'),
         ),
-       /* BuildChartWonderWeek7(
-          markerBaby: markerBaby,
-        ),
-        BuildChartWonderWeek14(
-          markerBaby: markerBaby,
-        ),
-        BuildChartWonderWeek21(
-          markerBaby: markerBaby,
-        ),
-        BuildChartWonderWeek28(
-          markerBaby: markerBaby,
-        ),
-        BuildChartWonderWeek35(
-          markerBaby: markerBaby,
-        ),
-        BuildChartWonderWeek42(
-          markerBaby: markerBaby,
-        ),
-        BuildChartWonderWeek49(
-          markerBaby: markerBaby,
-        ),
-        BuildChartWonderWeek56(
-          markerBaby: markerBaby,
-        ),
-        BuildChartWonderWeek63(
-          markerBaby: markerBaby,
-        ),
-        BuildChartWonderWeek70(
-          markerBaby: markerBaby,
-        ),
-        BuildChartWonderWeek77(
-          markerBaby: markerBaby,
-        ),
-        BuildChartWonderWeek84(
-          markerBaby: markerBaby,
-        ),*/
-        BuildWonderWeek(),
+        BuildWonderWeek(markerBaby: markerBaby,),
         BuildNoteWonderWeek(),
       ],
     );
