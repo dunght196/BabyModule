@@ -87,7 +87,7 @@ final List<WonderWeekData> week7data = <WonderWeekData>[
   ),
   WonderWeekData(
     x: 1,
-    y: 1,
+    y: 2,
     yValue: 1,
     yValue2: 1,
     yValue3: 1,
@@ -102,7 +102,7 @@ final List<WonderWeekData> week7data = <WonderWeekData>[
 final List<WonderWeekData> week14data = <WonderWeekData>[
   WonderWeekData(
     x: 1,
-    y: 1,
+    y: 0,
     yValue: 1,
     yValue2: 1,
     yValue3: 0.5,

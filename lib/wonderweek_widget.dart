@@ -36,29 +36,29 @@ class _BuildWonderWeekState extends State<BuildWonderWeek> {
       child: Stack(
         children: [
           getTrackerBarChart(),
-          SfCartesianChart(
-            plotAreaBorderWidth: 0,
-            primaryYAxis: NumericAxis(
-              opposedPosition: false,
-              isInversed: true,
-              isVisible: true,
-              majorGridLines: MajorGridLines(width: 0),
-              minimum: -0.4,
-              maximum: 13,
-              interval: 1,
-            ),
-            primaryXAxis: NumericAxis(
-              isVisible: true,
-              majorGridLines: MajorGridLines(width: 0),
-              minimum: -0.1,
-              maximum: 7.1,
-              interval: 1,
-              majorTickLines: MajorTickLines(size: 0),
-            ),
-            series: <CartesianSeries>[
-
-            ],
-          ),
+//          SfCartesianChart(
+//            plotAreaBorderWidth: 0,
+//            primaryYAxis: NumericAxis(
+//              opposedPosition: false,
+//              isInversed: true,
+//              isVisible: true,
+//              majorGridLines: MajorGridLines(width: 0),
+//              minimum: -0.4,
+//              maximum: 13,
+//              interval: 1,
+//            ),
+//            primaryXAxis: NumericAxis(
+//              isVisible: true,
+//              majorGridLines: MajorGridLines(width: 0),
+//              minimum: -0.1,
+//              maximum: 7.1,
+//              interval: 1,
+//              majorTickLines: MajorTickLines(size: 0),
+//            ),
+//            series: <CartesianSeries>[
+//
+//            ],
+//          ),
         ],
       ),
     );
@@ -97,6 +97,28 @@ SfCartesianChart getTrackerBarChart() {
           xValueMapper: (WonderWeekData sales, _) => sales.x,
           yValueMapper: (WonderWeekData sales, _) => sales.y,
         ),
+        StackedBarSeries<WonderWeekData, int>(
+          dataSource: week14data,
+          color: Colors.transparent,
+          borderColor: colorBorder,
+          borderWidth: widthBorderChart,
+          width: widthItemChart,
+          xValueMapper: (WonderWeekData sales, _) => sales.x,
+          yValueMapper: (WonderWeekData sales, _) => sales.y,
+            xAxisName: 'xAxis',
+            yAxisName: 'yAxis'
+        ),
+        StackedBarSeries<WonderWeekData, int>(
+            dataSource: week14data,
+            color: Colors.transparent,
+            borderColor: colorBorder,
+            borderWidth: widthBorderChart,
+            width: widthItemChart,
+            xValueMapper: (WonderWeekData sales, _) => sales.x,
+            yValueMapper: (WonderWeekData sales, _) => sales.yValue,
+            xAxisName: 'xAxis',
+            yAxisName: 'yAxis'
+        ),
 //        StackedBarSeries<WonderWeekData, int>(
 //          dataSource: week14data,
 //          color: Colors.transparent,
@@ -104,7 +126,7 @@ SfCartesianChart getTrackerBarChart() {
 //          borderWidth: widthBorderChart,
 //          width: widthItemChart,
 //          xValueMapper: (WonderWeekData sales, _) => sales.x,
-//          yValueMapper: (WonderWeekData sales, _) => sales.y,
+//          yValueMapper: (WonderWeekData sales, _) => sales.yValue,
 //        ),
       ]
   );
