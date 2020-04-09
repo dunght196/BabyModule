@@ -99,6 +99,13 @@ class _BuildWonderWeekState extends State<BuildWonderWeek> {
           xAxis.setAxisMinimum(0.6);
         },
         drawGridBackground: false,
+        dragXEnabled: false,
+        dragYEnabled: false,
+        scaleXEnabled: false,
+        scaleYEnabled: false,
+        highLightPerTapEnabled: false,
+        pinchZoomEnabled: false,
+        doubleTapToZoomEnabled: false,
         description: desc);
   }
 
@@ -128,6 +135,13 @@ class _BuildWonderWeekState extends State<BuildWonderWeek> {
             ..setAxisMaximum(7);
         },
         drawGridBackground: false,
+        dragXEnabled: false,
+        dragYEnabled: false,
+        scaleXEnabled: false,
+        scaleYEnabled: false,
+        highLightPerTapEnabled: false,
+        pinchZoomEnabled: false,
+        doubleTapToZoomEnabled: false,
         description: desc);
   }
 
@@ -157,6 +171,13 @@ class _BuildWonderWeekState extends State<BuildWonderWeek> {
             ..setAxisMaximum(7);
         },
         drawGridBackground: false,
+        dragXEnabled: false,
+        dragYEnabled: false,
+        scaleXEnabled: false,
+        scaleYEnabled: false,
+        highLightPerTapEnabled: false,
+        pinchZoomEnabled: false,
+        doubleTapToZoomEnabled: false,
         description: desc);
   }
 

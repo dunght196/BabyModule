@@ -1,7 +1,9 @@
 import 'package:baby_index_module/IndexBaby.dart';
+import 'package:baby_index_module/build_chart_index.dart';
 import 'package:baby_index_module/chart.dart';
 import 'package:baby_index_module/app_util.dart';
 import 'package:baby_index_module/chart_detail_fullscreen.dart';
+import 'package:baby_index_module/dummy_data.dart';
 import 'package:baby_index_module/table_index_data.dart';
 import 'package:baby_index_module/wonderweek_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -24,11 +26,15 @@ class _HomeState extends State<Home> {
   final tftPerimeter = TextEditingController();
   final tftDate = TextEditingController();
 
-  final databaseReference = Firestore.instance;
+  final databaseReference = Firestore.instance.collection('baby').document('cun').collection('date');
   DateTime _date = DateTime.now();
   var txtDate = DateFormat('dd-MM-yyyy').format(DateTime.now());
 
   var markerBaby = Entry();
+  var dateOfBirthBaby = "02-02-2019";
+
+  QuerySnapshot querySnapshot;
+  List<DocumentSnapshot> listSnapshot;
 
   @override
   void initState() {
@@ -40,7 +46,13 @@ class _HomeState extends State<Home> {
     var offsetYBaby = (week/7).floor().toDouble();
     var offsetXBaby = week - (7*offsetYBaby);
     markerBaby = Entry(x: offsetXBaby, y: 12-offsetYBaby);
-    print('Week: $difference');
+
+
+    getIndexList().then((results){
+      setState(() {
+        listSnapshot = results.documents;
+      });
+    });
   }
 
   @override
@@ -150,18 +162,36 @@ class _HomeState extends State<Home> {
           _buildWonderWeek(),
           _buildLine(),
           Padding(
-            padding: EdgeInsets.only(top: 0),
-            child: _buildChart(AppUtil.WEIGHT, context),
+            padding: EdgeInsets.only(top: 10),
+            child: BuildChartIndex(
+                AppUtil.WEIGHT,
+                DummyData.createBelowLineWeightBoy(),
+                DummyData.createTopLineWeightBoy(),
+                listSnapshot,
+                dateOfBirthBaby,
+            ),
           ),
           _buildLine(),
           Padding(
             padding: EdgeInsets.only(top: 10),
-            child: _buildChart(AppUtil.HEIGHT, context),
+            child: BuildChartIndex(
+              AppUtil.HEIGHT,
+              DummyData.createBelowLineHeightBoy(),
+              DummyData.createTopLineHeightBoy(),
+              listSnapshot,
+              dateOfBirthBaby,
+            ),
           ),
           _buildLine(),
           Padding(
-            padding: EdgeInsets.only(top: 10, bottom: 20),
-            child: _buildChart(AppUtil.PERIMETER, context),
+            padding: EdgeInsets.only(top: 10, bottom: 10),
+            child: BuildChartIndex(
+              AppUtil.PERIMETER,
+              DummyData.createBelowLinePerimeterBoy(),
+              DummyData.createTopLinePerimeterBoy(),
+              listSnapshot,
+              dateOfBirthBaby,
+            ),
           ),
         ],
       ),
@@ -243,187 +273,6 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget _buildChart(String title, BuildContext context) {
-    return Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                     child: Text(title),
-              )),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => TableIndexDataScreen()));
-                },
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: Text('Bảng chỉ số chuẩn'),
-                ),
-              ),
-            ],
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 10),
-            child: SfCartesianChart(
-                plotAreaBorderWidth: 0,
-                primaryXAxis: DateTimeAxis(
-                  dateFormat: DateFormat.m(),
-                  majorTickLines: MajorTickLines(size: 0),
-                ),
-                zoomPanBehavior:
-                    ZoomPanBehavior(enablePinching: true, enablePanning: true),
-                tooltipBehavior: TooltipBehavior(
-                    enable: true,
-                    header: '',
-                    canShowMarker: false,
-                    format: getMonthTooltip(),
-                    color: Colors.grey),
-                series: <ChartSeries>[
-                  /* StackedAreaSeries<SalesData, double>(
-                      opacity: 0.5,
-                      borderColor: Colors.blue,
-                      borderWidth: 3,
-                      color: Colors.blue,
-                      dataSource: myFakeDesktopData,
-                      xValueMapper: (SalesData sales, _) => sales.year,
-                      yValueMapper: (SalesData sales, _) => sales.sales),
-                  StackedAreaSeries<SalesData, double>(
-                      dataSource: myFakeTabletData,
-                      xValueMapper: (SalesData sales, _) => sales.year,
-                      yValueMapper: (SalesData sales, _) => sales.sales),
-                  ScatterSeries<SalesData, double>(
-                      color: Colors.blue,
-                      dataSource: myFakeMobileData,
-                      xValueMapper: (SalesData sales, _) => sales.year,
-                      yValueMapper: (SalesData sales, _) => sales.sales,
-                      enableTooltip: true),*/
-                  ScatterSeries<SalesData, DateTime>(
-                    color: Colors.blue,
-//                      dashArray: <double>[5, 5],
-                    dataSource: myFakeMobileData1,
-                    xValueMapper: (SalesData sales, _) => sales.year,
-                    yValueMapper: (SalesData sales, _) => sales.sales,
-                    markerSettings: MarkerSettings(
-                      isVisible: true,
-                    ),
-                  ),
-                ]),
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                color: Colors.red,
-                width: 8,
-                height: 8,
-                margin: EdgeInsets.only(left: 45),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 5, right: 5),
-                child: Text(
-                  'Ngưỡng dưới',
-                  style: TextStyle(fontSize: 10),
-                ),
-              ),
-              Container(
-                color: Colors.green[900],
-                width: 8,
-                height: 8,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 5, right: 5),
-                child: Text(
-                  'Ngưỡng trên',
-                  style: TextStyle(fontSize: 10),
-                ),
-              ),
-              Container(
-                color: Colors.grey,
-                width: 8,
-                height: 8,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 5, right: 5),
-                child: Text(
-                  'Dự đoán',
-                  style: TextStyle(fontSize: 10),
-                ),
-              ),
-              Container(
-                color: AppUtil.getColorExplain(title),
-                width: 8,
-                height: 8,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 5, right: 5),
-                child: Text(title, style: TextStyle(fontSize: 10)),
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    height: 38,
-                    decoration: BoxDecoration(
-                        border: Border(
-                            right: BorderSide(color: Colors.grey, width: 1.0))),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => IndexBabyScreen()));
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text('Chi tiết'),
-                          Icon(Icons.navigate_next),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    height: 38,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ChartDetailFullScreen(
-                                      title: title,
-                                    )));
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text('Xem toàn màn hình'),
-                          Icon(Icons.navigate_next),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ]);
-  }
-
   Widget _buildLine() {
     return Container(
       margin: EdgeInsets.only(top: 10),
@@ -455,9 +304,6 @@ class _HomeState extends State<Home> {
     IndexBaby mapData = IndexBaby(
         tftDate.text, tftHeight.text, tftWeight.text, tftPerimeter.text);
     await databaseReference
-        .collection('baby')
-        .document('cun')
-        .collection('date')
         .document(txtDate)
         .setData(mapData.toJson());
     await Navigator.push(
@@ -480,12 +326,8 @@ class _HomeState extends State<Home> {
     }
   }
 
-  String getMonthTooltip() {
-    var date1 = DateTime.parse('2019-02-02');
-    var date2 = DateTime.parse('2020-03-06');
-    final difference = date2.difference(date1).inDays;
-    var test = date1.add(Duration(days: 411));
-//    return DateFormat('dd-MM-yyyy').format(test);
-    return difference.toString();
+  Future<QuerySnapshot> getIndexList() async {
+    return await databaseReference.getDocuments();
   }
+
 }

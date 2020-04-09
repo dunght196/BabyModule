@@ -42,4 +42,5 @@ abstract class Util {
   // ignore: non_constant_identifier_names
   static TypeFace EXTRA_BOLD =
       TypeFace(fontFamily: "OpenSans", fontWeight: FontWeight.w800);
+
 }

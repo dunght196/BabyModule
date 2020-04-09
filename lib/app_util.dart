@@ -35,4 +35,13 @@ class AppUtil {
 
     return colorExplain;
   }
+
+  static String getSuffixYAxis(String title) {
+    if(title.contains(AppUtil.WEIGHT)) {
+      return "kg ";
+    }else {
+      return "cm ";
+    }
+  }
+
 }
