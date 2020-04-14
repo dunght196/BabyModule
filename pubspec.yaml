@@ -24,7 +24,6 @@ dependencies:
   flutter:
     sdk: flutter
   cloud_firestore: ^0.13.3
-  syncfusion_flutter_charts: ^17.4.46
   intl: ^0.16.1
   mp_chart: ^0.1.9
 

@@ -1,5 +1,5 @@
 import 'package:baby_index_module/home.dart';
-import 'package:baby_index_module/IndexBaby.dart';
+import 'package:baby_index_module/index_baby.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +55,7 @@ class _DetailIndexBabyState extends State<DetailIndexBabyScreen> {
             },
           ),
           titleSpacing: 0.0,
-          title: Text('Cập nhật chỉ số cho beeee')),
+          title: Text('Cập nhật chỉ số cho bé')),
       body: Stack(
         children: <Widget>[
           Container(

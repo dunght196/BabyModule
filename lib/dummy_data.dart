@@ -1,5 +1,5 @@
 
-import 'package:baby_index_module/IndexBaby.dart';
+import 'package:baby_index_module/index_baby.dart';
 import 'package:mp_chart/mp/core/entry/entry.dart';
 
 class DummyData {

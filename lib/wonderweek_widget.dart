@@ -104,6 +104,8 @@ class _BuildWonderWeekState extends State<BuildWonderWeek> {
         scaleXEnabled: false,
         scaleYEnabled: false,
         highLightPerTapEnabled: false,
+        highlightPerDragEnabled: false,
+        highlightFullBarEnabled: false,
         pinchZoomEnabled: false,
         doubleTapToZoomEnabled: false,
         description: desc);
@@ -140,6 +142,7 @@ class _BuildWonderWeekState extends State<BuildWonderWeek> {
         scaleXEnabled: false,
         scaleYEnabled: false,
         highLightPerTapEnabled: false,
+        highlightPerDragEnabled: false,
         pinchZoomEnabled: false,
         doubleTapToZoomEnabled: false,
         description: desc);
@@ -176,6 +179,7 @@ class _BuildWonderWeekState extends State<BuildWonderWeek> {
         scaleXEnabled: false,
         scaleYEnabled: false,
         highLightPerTapEnabled: false,
+        highlightPerDragEnabled: false,
         pinchZoomEnabled: false,
         doubleTapToZoomEnabled: false,
         description: desc);
@@ -499,7 +503,7 @@ class _BuildWonderWeekState extends State<BuildWonderWeek> {
     List<ui.Image> imgs = List(3);
     imgs[0] = await ImageLoader.loadImage('assets/img/cloud.png');
     imgs[1] = await ImageLoader.loadImage('assets/img/sunny.png');
-    imgs[2] = await ImageLoader.loadImage('assets/img/baby1.png');;
+    imgs[2] = await ImageLoader.loadImage('assets/img/baby.png');;
 
     List<Entry> marker = List();
     List<Entry> marker1 = List();

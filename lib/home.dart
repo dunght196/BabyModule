@@ -1,6 +1,5 @@
-import 'package:baby_index_module/IndexBaby.dart';
+import 'package:baby_index_module/index_baby.dart';
 import 'package:baby_index_module/build_chart_index.dart';
-import 'package:baby_index_module/chart.dart';
 import 'package:baby_index_module/app_util.dart';
 import 'package:baby_index_module/chart_detail_fullscreen.dart';
 import 'package:baby_index_module/dummy_data.dart';
@@ -11,8 +10,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mp_chart/mp/core/entry/entry.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-import 'IndexBabyScreen.dart';
+import 'index_baby_screen.dart';
 
 class Home extends StatefulWidget {
   static final heightTextField = 40.0;

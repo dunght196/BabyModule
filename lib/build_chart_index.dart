@@ -1,4 +1,4 @@
-import 'package:baby_index_module/IndexBaby.dart';
+import 'package:baby_index_module/index_baby.dart';
 import 'package:baby_index_module/app_util.dart';
 import 'package:baby_index_module/check_valid_guess_baby.dart';
 import 'package:baby_index_module/color_util.dart';
@@ -29,7 +29,7 @@ import 'package:mp_chart/mp/core/value_formatter/default_value_formatter.dart';
 import 'package:mp_chart/mp/core/value_formatter/value_formatter.dart';
 import 'package:mp_chart/mp/core/view_port.dart';
 
-import 'IndexBabyScreen.dart';
+import 'index_baby_screen.dart';
 import 'chart_detail_fullscreen.dart';
 
 class BuildChartIndex extends StatefulWidget {
@@ -189,6 +189,10 @@ class _BuildChartIndexState extends State<BuildChartIndex> {
                           MaterialPageRoute(
                               builder: (context) => ChartDetailFullScreen(
                                 title: title,
+                                dataBelowLine: dataBelowLine,
+                                dataTopLine: dataTopLine,
+                                dataGuess: dataGuess,
+                                dataIndex: dataIndex,
                               )));
                     },
                     child: Row(
@@ -214,7 +218,7 @@ class _BuildChartIndexState extends State<BuildChartIndex> {
         backgroundColor: Colors.transparent,
         axisLeftSettingFunction: (axisLeft, controller) {
           axisLeft
-            ..drawGridLines = (false)
+            ..drawGridLines = (true)
             ..setLabelCount2(6, true)
             ..setValueFormatter(FormatXAxisValue(AppUtil.getSuffixYAxis(title)))
             ..typeface = Util.LIGHT;
@@ -229,7 +233,7 @@ class _BuildChartIndexState extends State<BuildChartIndex> {
         xAxisSettingFunction: (xAxis, controller) {
           xAxis
             ..position = XAxisPosition.BOTTOM
-            ..drawGridLines = (false)
+            ..drawGridLines = (true)
             ..setValueFormatter(FormatXAxisValue("thg"))
             ..setLabelCount2(6, true)
             ..typeface = Util.LIGHT;
@@ -286,7 +290,7 @@ class _BuildChartIndexState extends State<BuildChartIndex> {
     // create a dataset and give it a type
     set3 = LineDataSet(values2, "DataSet 3");
     set3.setDrawValues(true);
-    set3.setValueFormatter(FormatXAxisValue(AppUtil.getSuffixYAxis(title)));
+    set3.setValueFormatter(FormatDrawValue(AppUtil.getSuffixYAxis(title)));
     set3.setLineWidth(2);
     set3.setDrawCircleHole(false);
     set3.setHighLightColor(Colors.transparent);
@@ -301,7 +305,7 @@ class _BuildChartIndexState extends State<BuildChartIndex> {
 
     set4 = LineDataSet(values3, "DataSet 4");
     set4.setDrawValues(true);
-    set4.setValueFormatter(FormatXAxisValue(AppUtil.getSuffixYAxis(title)));
+    set4.setValueFormatter(FormatDrawValue(AppUtil.getSuffixYAxis(title)));
     set4.setLineWidth(2);
     set4.setDrawCircleHole(false);
     set4.setHighLightColor(Colors.transparent);
@@ -329,31 +333,29 @@ class _BuildChartIndexState extends State<BuildChartIndex> {
   }
 
   void initDataIndex() {
-    List<IndexBaby> lsIndexBaby = List();
-    for(var x in snapShot) {
-      IndexBaby index = IndexBaby.fromSnapshot(x);
-      lsIndexBaby.add(index);      
-    }
-    
+//    List<IndexBaby> lsIndexBaby = List();
+//    for(var x in snapShot) {
+//      IndexBaby index = IndexBaby.fromSnapshot(x);
+//      lsIndexBaby.add(index);
+//    }
+    List lsIndexBaby = snapShot.map((item) => IndexBaby.fromSnapshot(item)).toList();
+
     bool isDataGuess = false;
-    for(var index in lsIndexBaby) {
-      switch(title) {
-        case AppUtil.HEIGHT:
-          if(!CheckValidGuessData.isValidGuessBoyHeight(getMonthIndex(index.date), double.parse(index.height))) {
-            isDataGuess = false;
-            break;
-          }else {
-            isDataGuess = true;
-          }
-          break;
-        case AppUtil.WEIGHT:
-          if(!CheckValidGuessData.isValidGuessBoyWeight(getMonthIndex(index.date), double.parse(index.weight))) {
-            isDataGuess = false;
-            break;
-          }else {
-            isDataGuess = true;
-          }
-      }
+    switch(title) {
+      case AppUtil.HEIGHT:
+        List check = lsIndexBaby.where((item) => !CheckValidGuessData.isValidGuessBoyHeight(getMonthIndex(item.date), double.parse(item.height))).toList();
+        isDataGuess =  (check.length > 0) ? false : true;
+        break;
+      case AppUtil.WEIGHT:
+        List check = lsIndexBaby.where((item) => !CheckValidGuessData.isValidGuessBoyWeight(getMonthIndex(item.date), double.parse(item.weight))).toList();
+        isDataGuess =  (check.length > 0) ? false : true;
+        break;
+      case AppUtil.PERIMETER:
+        List check = lsIndexBaby.where((item) => !CheckValidGuessData.isValidGuessBoyPerimeter(getMonthIndex(item.date), double.parse(item.perimeter))).toList();
+        isDataGuess =  (check.length > 0) ? false : true;
+        break;
+      default:
+        break;
     }
 
     for(int i=1; i<=lsIndexBaby.length; i++) {
@@ -510,7 +512,7 @@ class CustomMarker implements IMarker {
   void draw(Canvas canvas, double posX, double posY) {
     TextPainter painter = PainterUtils.create(
         null,
-        "${_entry.y.toInt()}${AppUtil.getSuffixYAxis(_title)}-${_entry.x}thg",
+        "${_entry.y}${AppUtil.getSuffixYAxis(_title)}-${_entry.x}thg",
         _textColor,
         _fontSize);
     Paint paint = Paint()
@@ -566,7 +568,21 @@ class FormatXAxisValue extends ValueFormatter {
 
   @override
   String getFormattedValue1(double value) {
-    return value.toInt().toString() + _suffix;
+    return value.toStringAsFixed(0) + _suffix;
+  }
+}
+
+class FormatDrawValue extends ValueFormatter {
+
+  String _suffix;
+
+  FormatDrawValue(String suffix) {
+    this._suffix = suffix;
+  }
+
+  @override
+  String getFormattedValue1(double value) {
+    return value.toStringAsFixed(1) + _suffix;
   }
 
 }
